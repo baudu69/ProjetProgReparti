@@ -6,6 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { ListeApprenantComponent } from './apprenant/liste-apprenant/liste-apprenant.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ListeApprenantComponent } from './apprenant/liste-apprenant/liste-appre
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
