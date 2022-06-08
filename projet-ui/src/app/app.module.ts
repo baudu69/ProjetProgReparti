@@ -14,6 +14,9 @@ import {ListeMissionComponent} from './mission/liste-mission/liste-mission.compo
 import {ListeMissionApprenantComponent} from './apprenant/liste-mission-apprenant/liste-mission-apprenant.component';
 import {ListeActionComponent} from './action/liste-action/liste-action.component';
 import {ListeIndicatorsComponent} from './action/liste-action/liste-indicators/liste-indicators.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import {ListeIndicatorsComponent} from './action/liste-action/liste-indicators/l
     HttpClientModule,
     MatTableModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

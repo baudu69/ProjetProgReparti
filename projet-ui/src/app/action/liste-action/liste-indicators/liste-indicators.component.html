@@ -1,6 +1,22 @@
 <div class="container">
   <h1 *ngIf="!action">Liste des indicators de l'action : </h1>
   <h1 *ngIf="action">Liste des indicators de l'action : {{action.wording}}</h1>
+  <button (click)="diplayForm()" color="primary" mat-raised-button>Afficher formulaire ajout indicator</button>
+  <form (ngSubmit)="onSubmit()" *ngIf="displayAddForm" [formGroup]="formAdd" class="example-form">
+    <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>Nom de l'indicator</mat-label>
+      <input formControlName="wording" matInput placeholder="example">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>Valeure réponse correcte</mat-label>
+      <input formControlName="valueIfCheck" matInput placeholder="-1" type="number" value="0">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>Valeure réponse incorrecte</mat-label>
+      <input formControlName="valueIfUnCheck" matInput placeholder="-1" type="number" value="0">
+    </mat-form-field>
+    <button mat-raised-button type="submit">Valider</button>
+  </form>
   <table [dataSource]="indicators" class="mat-elevation-z8" mat-table>
     <ng-container matColumnDef="id">
       <th *matHeaderCellDef mat-header-cell> ID</th>

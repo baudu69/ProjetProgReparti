@@ -14,4 +14,8 @@ export class IndicatorService {
   public getIndicatorsOfAnAction(actionId: number): Observable<HttpResponse<IIndicator[]>> {
     return this.http.get<IIndicator[]>('api/action/indicator' + actionId, {observe: 'response'});
   }
+
+  public addIndicator(indicator: IIndicator): Observable<HttpResponse<any>> {
+    return this.http.put<any>('api/action/indicator', indicator, {observe: 'response'});
+  }
 }
