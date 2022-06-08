@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Liste des missions</h1>
+  <table [dataSource]="missions" class="mat-elevation-z8" mat-table>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell> ID</th>
+      <td *matCellDef="let element" mat-cell> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell> Nom</th>
+      <td *matCellDef="let element" mat-cell> {{element.wording}} </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+</div>

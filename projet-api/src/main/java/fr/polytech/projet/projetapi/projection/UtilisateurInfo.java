@@ -5,8 +5,6 @@ public interface UtilisateurInfo {
 
 	String getNomUtil();
 
-	String getRole();
-
 	String getSurname();
 
 	String getForename();

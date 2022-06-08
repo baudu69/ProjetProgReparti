@@ -30,7 +30,7 @@ public class ApprenantController {
 	@GetMapping("{idApprenant}")
 	public ResponseEntity<UtilisateurInfo> getById(@PathVariable int idApprenant) {
 		logger.info("REST GET getById : {}", idApprenant);
-		return ResponseEntity.of(this.serviceApprenant.getById(idApprenant));
+		return ResponseEntity.of(this.serviceApprenant.getInfoById(idApprenant));
 	}
 
 	@PutMapping

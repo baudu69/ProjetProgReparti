@@ -1,4 +1,43 @@
 <div class="container">
   <h1>Liste des apprenants : </h1>
+  <table [dataSource]="apprenants" class="mat-elevation-z8" mat-table>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell> Numéro</th>
+      <td *matCellDef="let element" mat-cell> {{element.id}} </td>
+    </ng-container>
 
+    <ng-container matColumnDef="nom">
+      <th *matHeaderCellDef mat-header-cell> Nom</th>
+      <td *matCellDef="let element" mat-cell> {{element.surname}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="prenom">
+      <th *matHeaderCellDef mat-header-cell> Prénom</th>
+      <td *matCellDef="let element" mat-cell> {{element.forename}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="missions">
+      <th *matHeaderCellDef mat-header-cell></th>
+      <td *matCellDef="let element" mat-cell><a routerLink="mission/{{element.id}}">
+        <button color="primary" mat-raised-button>Missions</button>
+      </a></td>
+    </ng-container>
+
+    <ng-container matColumnDef="modifier">
+      <th *matHeaderCellDef mat-header-cell></th>
+      <td *matCellDef="let element" mat-cell>
+        <button color="accent" mat-raised-button>Modifier</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="supprimer">
+      <th *matHeaderCellDef mat-header-cell></th>
+      <td *matCellDef="let element" mat-cell>
+        <button (click)="supprimerApprenant(element.id)" color="warn" mat-raised-button>Supprimer</button>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
 </div>

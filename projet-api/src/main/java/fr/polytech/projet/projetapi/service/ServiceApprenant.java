@@ -23,17 +23,21 @@ public class ServiceApprenant {
 		return this.utilisateurRepository.findByRole(NOM_ROLE);
 	}
 
-	public Optional<UtilisateurInfo> getById(int id) {
-		return this.utilisateurRepository.findByIdAndRole(id, NOM_ROLE);
-	}
+	public Optional<UtilisateurInfo> getInfoById(int id) {
+        return this.utilisateurRepository.findByIdAndRole(id, NOM_ROLE);
+    }
 
-	public void addApprenant(Utilisateur utilisateur) {
-		if (!utilisateur.getRole().equals(NOM_ROLE)) throw new IllegalArgumentException("Le role ne correspond pas");
-		if (this.getById(utilisateur.getId()).isPresent()) throw new AlreadyExistException();
-		this.utilisateurRepository.save(utilisateur);
-	}
+    public void addApprenant(Utilisateur utilisateur) {
+        if (!utilisateur.getRole().equals(NOM_ROLE)) throw new IllegalArgumentException("Le role ne correspond pas");
+        if (this.getInfoById(utilisateur.getId()).isPresent()) throw new AlreadyExistException();
+        this.utilisateurRepository.save(utilisateur);
+    }
 
-	public void deleteApprenant(int idApprenant) {
-		this.utilisateurRepository.delete(this.utilisateurRepository.findById(idApprenant).orElseThrow(NotExistException::new));
-	}
+    public void deleteApprenant(int idApprenant) {
+        this.utilisateurRepository.delete(this.utilisateurRepository.findById(idApprenant).orElseThrow(NotExistException::new));
+    }
+
+    public Optional<Utilisateur> getById(int id) {
+        return this.utilisateurRepository.findById(id);
+    }
 }

@@ -6,23 +6,47 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "inscription")
 public class Inscription {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable = false)
-	private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Integer id;
 
-	@Column(name = "date")
-	private LocalDate date;
+    @Column(name = "date")
+    private LocalDate date;
 
-	public Integer getId() {
-		return id;
-	}
+    @OneToOne(orphanRemoval = true)
+    @JoinColumn(name = "fk_user")
+    private Utilisateur utilisateur;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    @ManyToOne
+    @JoinColumn(name = "fk_mission")
+    private Mission mission;
 
-	public LocalDate getDate() {
+    public Mission getMission() {
+        return mission;
+    }
+
+    public void setMission(Mission mission) {
+        this.mission = mission;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public LocalDate getDate() {
 		return date;
 	}
 
