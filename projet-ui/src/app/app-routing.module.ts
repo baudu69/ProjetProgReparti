@@ -6,11 +6,13 @@ import {ListeMissionComponent} from "./mission/liste-mission/liste-mission.compo
 import {ListeMissionApprenantComponent} from "./apprenant/liste-mission-apprenant/liste-mission-apprenant.component";
 import {ListeActionComponent} from "./action/liste-action/liste-action.component";
 import {ListeIndicatorsComponent} from "./action/liste-action/liste-indicators/liste-indicators.component";
+import {ListeActionMissionComponent} from "./mission/liste-mission/liste-action-mission/liste-action-mission.component";
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
   {path: 'apprenant', component: ListeApprenantComponent},
   {path: 'mission', component: ListeMissionComponent},
+  {path: 'mission/action/:idMission', component: ListeActionMissionComponent},
   {path: 'apprenant/mission/:idApprenant', component: ListeMissionApprenantComponent},
   {path: 'action', component: ListeActionComponent},
   {path: 'action/indicators/:idIndicator', component: ListeIndicatorsComponent}

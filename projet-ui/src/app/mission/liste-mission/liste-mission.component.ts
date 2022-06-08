@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MissionService} from "../mission.service";
+import {MissionService} from "../../shared/service/mission.service";
 import {IMission} from "../../shared/metier/Mission";
 
 @Component({
@@ -9,7 +9,7 @@ import {IMission} from "../../shared/metier/Mission";
 })
 export class ListeMissionComponent implements OnInit {
   missions: IMission[] = [];
-  displayedColumns: string[] = ['id', 'name'];
+  displayedColumns: string[] = ['id', 'name', 'gestion'];
 
   constructor(private serviceMission: MissionService) {
   }

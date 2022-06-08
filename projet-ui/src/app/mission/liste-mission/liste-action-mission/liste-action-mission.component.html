@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Liste des actions de la mission : </h1>
+  <div cdkDropListGroup>
+    <div class="example-container">
+      <h2>To do</h2>
+
+      <div
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListData]="actionsInMission"
+        cdkDropList
+        class="example-list">
+        <div *ngFor="let item of actionsInMission" cdkDrag class="example-box">{{item.wording}}</div>
+      </div>
+    </div>
+
+    <div class="example-container">
+      <h2>Done</h2>
+
+      <div
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListData]="actionsNotInMission"
+        cdkDropList
+        class="example-list">
+        <div *ngFor="let item of actionsNotInMission" cdkDrag class="example-box">{{item.wording}}</div>
+      </div>
+    </div>
+  </div>
+</div>

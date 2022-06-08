@@ -17,6 +17,8 @@ import {ListeIndicatorsComponent} from './action/liste-action/liste-indicators/l
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import {ListeActionMissionComponent} from './mission/liste-mission/liste-action-mission/liste-action-mission.component';
+import {DragDropModule} from "@angular/cdk/drag-drop";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     ListeMissionComponent,
     ListeMissionApprenantComponent,
     ListeActionComponent,
-    ListeIndicatorsComponent
+    ListeIndicatorsComponent,
+    ListeActionMissionComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
