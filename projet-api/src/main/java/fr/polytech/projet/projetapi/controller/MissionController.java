@@ -79,7 +79,7 @@ public class MissionController {
     @GetMapping("action/{idMission}/{idAction}")
     public ResponseEntity<Boolean> addActionToMission(@PathVariable int idAction, @PathVariable int idMission) {
         logger.info("REST GET addActionToMission : {}", idAction);
-        this.serviceMission.addActionToMission(idAction, idMission);
+        this.serviceMission.addActionToMission(idMission, idAction);
         return ResponseEntity.status(HttpStatus.OK).body(true);
     }
 }
