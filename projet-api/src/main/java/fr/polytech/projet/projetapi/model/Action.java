@@ -11,9 +11,8 @@ public class Action {
 	@Column(name = "id", nullable = false)
 	private Integer id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "fk_action")
-	private Action fkAction;
+	@Column(name = "fk_action")
+	private Integer idActionSuivante;
 
 	@Column(name = "wording", length = 25)
 	private String wording;
@@ -21,7 +20,7 @@ public class Action {
 	@Column(name = "scoreMinimum")
 	private Integer scoreMinimum;
 
-	@OneToMany(mappedBy = "fkAction")
+	@OneToMany(mappedBy = "idAction")
 	private List<Indicator> indicator;
 
 	public Integer getId() {
@@ -32,12 +31,12 @@ public class Action {
 		this.id = id;
 	}
 
-	public Action getFkAction() {
-		return fkAction;
+	public Integer getIdActionSuivante() {
+		return idActionSuivante;
 	}
 
-	public void setFkAction(Action fkAction) {
-		this.fkAction = fkAction;
+	public void setIdActionSuivante(Integer idActionSuivante) {
+		this.idActionSuivante = idActionSuivante;
 	}
 
 	public String getWording() {

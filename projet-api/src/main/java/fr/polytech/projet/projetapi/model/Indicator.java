@@ -10,9 +10,8 @@ public class Indicator {
 	@Column(name = "id", nullable = false)
 	private Integer id;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "fk_action", nullable = false)
-	private Action fkAction;
+	@Column(name = "fk_action", nullable = false)
+	private Integer idAction;
 
 	@Column(name = "wording", length = 50)
 	private String wording;
@@ -31,12 +30,12 @@ public class Indicator {
 		this.id = id;
 	}
 
-	public Action getFkAction() {
-		return fkAction;
+	public Integer getIdAction() {
+		return idAction;
 	}
 
-	public void setFkAction(Action fkAction) {
-		this.fkAction = fkAction;
+	public void setIdAction(Integer idAction) {
+		this.idAction = idAction;
 	}
 
 	public String getWording() {
