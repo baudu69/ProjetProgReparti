@@ -1,6 +1,7 @@
 package fr.polytech.projet.projetapi.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "action")
@@ -19,6 +20,9 @@ public class Action {
 
 	@Column(name = "scoreMinimum")
 	private Integer scoreMinimum;
+
+	@OneToMany(mappedBy = "fkAction")
+	private List<Indicator> indicator;
 
 	public Integer getId() {
 		return id;
@@ -52,4 +56,11 @@ public class Action {
 		this.scoreMinimum = scoreMinimum;
 	}
 
+	public List<Indicator> getIndicator() {
+		return indicator;
+	}
+
+	public void setIndicator(List<Indicator> indicator) {
+		this.indicator = indicator;
+	}
 }

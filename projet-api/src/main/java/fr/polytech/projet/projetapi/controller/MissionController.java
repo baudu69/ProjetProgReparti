@@ -40,4 +40,10 @@ public class MissionController {
         logger.info("REST GET getMissionsByUserId : {}", idUser);
         return ResponseEntity.ok(this.serviceMission.getMissionsByUserId(idUser));
     }
+
+    @GetMapping("/user/noninscrit/{idUser}")
+    public ResponseEntity<List<Mission>> getMissionsNonInscritByUserId(@PathVariable int idUser) {
+        logger.info("REST GET getMissionsNonInscritByUserId : {}", idUser);
+        return ResponseEntity.ok(this.serviceMission.getMissionsNonInscritsByUserId(idUser));
+    }
 }

@@ -30,4 +30,17 @@ public class ServiceMission {
     public List<InscriptionInfo> getMissionsByUserId(int idUser) {
         return this.inscriptionRepository.findByUtilisateur_Id(idUser);
     }
+
+    /**
+     * @param idUser id utilisateur
+     * @return liste des missions où l'utilisateur est n'est pas inscrit
+     */
+    public List<Mission> getMissionsNonInscritsByUserId(int idUser) {
+        List<Integer> idMissionsInscrites = this.getMissionsByUserId(idUser)
+                .stream()
+                .map(InscriptionInfo::getMission)
+                .map(InscriptionInfo.MissionInfo::getId)
+                .toList();
+        return this.missionRepository.findByIdNotIn(idMissionsInscrites);
+    }
 }

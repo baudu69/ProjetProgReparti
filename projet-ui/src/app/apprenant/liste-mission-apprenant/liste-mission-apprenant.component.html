@@ -14,4 +14,20 @@
     <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
     <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
   </table>
+  <h2>Liste des missions disponibles : </h2>
+  <table [dataSource]="missionsDisponibles" class="mat-elevation-z8" mat-table>
+    <ng-container matColumnDef="nom">
+      <th *matHeaderCellDef mat-header-cell> Nom</th>
+      <td *matCellDef="let element" mat-cell> {{element.wording}} </td>
+    </ng-container>
+    <ng-container matColumnDef="btn">
+      <th *matHeaderCellDef mat-header-cell> Date</th>
+      <td *matCellDef="let element" mat-cell>
+        <button color="primary" mat-raised-button>Inscription</button>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns2" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns2;" mat-row></tr>
+  </table>
 </div>
