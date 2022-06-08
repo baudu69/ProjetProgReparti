@@ -27,4 +27,8 @@ export class MissionService {
   public getActionsNotInMission(id: number): Observable<HttpResponse<IAction[]>> {
     return this.http.get<IAction[]>(`api/mission/action/${id}/not`, {observe: 'response'});
   }
+
+  public addActionToMission(idMission: number, idAction: number): Observable<HttpResponse<any>> {
+    return this.http.get<any>(`api/mission/action/${idMission}/${idAction}`, {observe: 'response'});
+  }
 }

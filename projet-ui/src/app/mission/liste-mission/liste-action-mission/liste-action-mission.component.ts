@@ -57,17 +57,30 @@ export class ListeActionMissionComponent implements OnInit {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      if (event.previousContainer.id === 'actionsInMission') {
+      if (event.previousContainer.id === 'cdk-drop-list-1') {
         transferArrayItem(
           event.previousContainer.data,
           event.container.data,
           event.previousIndex,
           event.currentIndex,
         );
+        this.inscrireAction(event.container.data[event.currentIndex])
       } else {
         this._snackBar.open("Impossible d'enlever une action", "Ok", {duration: 2000})
       }
     }
+  }
+
+  inscrireAction(action: IAction): void {
+    console.log(JSON.stringify(action))
+    this.missionService.addActionToMission(this.idMission, action.id).subscribe({
+      next: () => {
+        this._snackBar.open("Ajout effectué", "Ok", {duration: 2000})
+      },
+      error: (err) => {
+        this._snackBar.open(err.error.message, "Ok", {duration: 2000})
+      }
+    })
   }
 
 }
