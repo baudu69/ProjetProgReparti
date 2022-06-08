@@ -19,6 +19,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ListeActionMissionComponent} from './mission/liste-mission/liste-action-mission/liste-action-mission.component';
 import {DragDropModule} from "@angular/cdk/drag-drop";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
     MatInputModule,
     ReactiveFormsModule,
     DragDropModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

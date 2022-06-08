@@ -3,6 +3,7 @@ import {IAction} from "../../../shared/metier/Action";
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 import {MissionService} from "../../../shared/service/mission.service";
 import {ActivatedRoute} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-liste-action-mission',
@@ -17,7 +18,8 @@ export class ListeActionMissionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private missionService: MissionService
+    private missionService: MissionService,
+    private _snackBar: MatSnackBar
   ) {
     this.idMission = this.route.snapshot.params['idMission'];
   }
@@ -55,12 +57,16 @@ export class ListeActionMissionComponent implements OnInit {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      );
+      if (event.previousContainer.id === 'actionsInMission') {
+        transferArrayItem(
+          event.previousContainer.data,
+          event.container.data,
+          event.previousIndex,
+          event.currentIndex,
+        );
+      } else {
+        this._snackBar.open("Impossible d'enlever une action", "Ok", {duration: 2000})
+      }
     }
   }
 
