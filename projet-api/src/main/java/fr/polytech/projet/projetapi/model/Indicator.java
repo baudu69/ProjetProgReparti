@@ -62,4 +62,13 @@ public class Indicator {
 		this.valueIfUnCheck = valueIfUnCheck;
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "(" +
+				"id = " + id + ", " +
+				"idAction = " + idAction + ", " +
+				"wording = " + wording + ", " +
+				"valueIfCheck = " + valueIfCheck + ", " +
+				"valueIfUnCheck = " + valueIfUnCheck + ")";
+	}
 }

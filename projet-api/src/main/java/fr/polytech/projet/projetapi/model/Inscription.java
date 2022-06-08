@@ -47,11 +47,19 @@ public class Inscription {
     }
 
     public LocalDate getDate() {
-		return date;
-	}
+        return date;
+    }
 
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "id = " + id + ", " +
+                "date = " + date + ", " +
+                "utilisateur = " + utilisateur + ", " +
+                "mission = " + mission + ")";
+    }
 }

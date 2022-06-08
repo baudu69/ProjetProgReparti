@@ -4,7 +4,6 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -47,4 +46,11 @@ public class ActionMissionId implements Serializable {
 		return Objects.hash(fkAction, fkMission);
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "(" +
+				"serialVersionUID = " + serialVersionUID + ", " +
+				"fkAction = " + fkAction + ", " +
+				"fkMission = " + fkMission + ")";
+	}
 }

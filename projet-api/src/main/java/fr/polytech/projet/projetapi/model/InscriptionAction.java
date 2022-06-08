@@ -64,4 +64,11 @@ public class InscriptionAction {
 		this.score = score;
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "(" +
+				"id = " + id + ", " +
+				"sort = " + sort + ", " +
+				"score = " + score + ")";
+	}
 }

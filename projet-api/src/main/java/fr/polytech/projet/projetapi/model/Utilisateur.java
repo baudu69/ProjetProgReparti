@@ -84,4 +84,15 @@ public class Utilisateur {
 		this.forename = forename;
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "(" +
+				"id = " + id + ", " +
+				"nomUtil = " + nomUtil + ", " +
+				"motPasse = " + motPasse + ", " +
+				"salt = " + salt + ", " +
+				"role = " + role + ", " +
+				"surname = " + surname + ", " +
+				"forename = " + forename + ")";
+	}
 }

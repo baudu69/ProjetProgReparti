@@ -62,4 +62,13 @@ public class Action {
 	public void setIndicator(List<Indicator> indicator) {
 		this.indicator = indicator;
 	}
+
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "(" +
+				"id = " + id + ", " +
+				"idActionSuivante = " + idActionSuivante + ", " +
+				"wording = " + wording + ", " +
+				"scoreMinimum = " + scoreMinimum + ")";
+	}
 }

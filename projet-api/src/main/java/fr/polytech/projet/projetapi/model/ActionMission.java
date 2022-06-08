@@ -29,4 +29,9 @@ public class ActionMission {
 		this.fkAction = fkAction;
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "(" +
+				"EmbeddedId = " + id + ")";
+	}
 }
