@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 *ngIf="!action">Liste des indicators de l'action : </h1>
+  <h1 *ngIf="action">Liste des indicators de l'action : {{action.wording}}</h1>
+  <table [dataSource]="indicators" class="mat-elevation-z8" mat-table>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell> ID</th>
+      <td *matCellDef="let element" mat-cell> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell> Nom</th>
+      <td *matCellDef="let element" mat-cell> {{element.wording}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="scoreCorrect">
+      <th *matHeaderCellDef mat-header-cell> Valeure réponse correcte</th>
+      <td *matCellDef="let element" mat-cell> {{element.valueIfCheck}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="scoreIncorrect">
+      <th *matHeaderCellDef mat-header-cell> Valeur réponse incorrecte</th>
+      <td *matCellDef="let element" mat-cell>{{element.valueIfUnCheck}}</td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+</div>

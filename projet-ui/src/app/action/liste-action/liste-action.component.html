@@ -16,6 +16,13 @@
       <td *matCellDef="let element" mat-cell> {{element.scoreMinimum}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="listeIndicators">
+      <th *matHeaderCellDef mat-header-cell> Liste des indicators</th>
+      <td *matCellDef="let element" mat-cell><a routerLink="indicators/{{element.id}}">
+        <button color="primary" mat-raised-button>Indicators</button>
+      </a></td>
+    </ng-container>
+
     <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
     <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
   </table>

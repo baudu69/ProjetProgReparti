@@ -4,5 +4,5 @@ export interface IAction {
   id: number;
   wording: string;
   scoreMinimum: number;
-  indicator: IIndicator;
+  indicator: IIndicator[];
 }

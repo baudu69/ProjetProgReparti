@@ -9,7 +9,7 @@ import {ActionService} from "../../shared/service/action.service";
 })
 export class ListeActionComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'scoreMini'];
+  displayedColumns: string[] = ['id', 'name', 'scoreMini', 'listeIndicators'];
 
   actions: IAction[] = [];
 

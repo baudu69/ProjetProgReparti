@@ -13,6 +13,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {ListeMissionComponent} from './mission/liste-mission/liste-mission.component';
 import {ListeMissionApprenantComponent} from './apprenant/liste-mission-apprenant/liste-mission-apprenant.component';
 import {ListeActionComponent} from './action/liste-action/liste-action.component';
+import {ListeIndicatorsComponent} from './action/liste-action/liste-indicators/liste-indicators.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ListeActionComponent} from './action/liste-action/liste-action.component
     ListeApprenantComponent,
     ListeMissionComponent,
     ListeMissionApprenantComponent,
-    ListeActionComponent
+    ListeActionComponent,
+    ListeIndicatorsComponent
   ],
   imports: [
     BrowserModule,

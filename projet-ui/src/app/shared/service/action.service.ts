@@ -14,4 +14,8 @@ export class ActionService {
   getAllActions(): Observable<HttpResponse<IAction[]>> {
     return this.http.get<IAction[]>('/api/action', {observe: 'response'});
   }
+
+  getActionById(id: number): Observable<HttpResponse<IAction>> {
+    return this.http.get<IAction>(`/api/action/${id}`, {observe: 'response'});
+  }
 }
