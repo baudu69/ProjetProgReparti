@@ -4,10 +4,11 @@ import fr.polytech.projet.projetapi.exception.NotExistException;
 import fr.polytech.projet.projetapi.model.Inscription;
 import fr.polytech.projet.projetapi.model.Mission;
 import fr.polytech.projet.projetapi.model.Utilisateur;
+import fr.polytech.projet.projetapi.projection.ActionWithoutIndicator;
 import fr.polytech.projet.projetapi.projection.InscriptionInfo;
-import fr.polytech.projet.projetapi.repository.InscriptionRepository;
-import fr.polytech.projet.projetapi.repository.MissionRepository;
-import fr.polytech.projet.projetapi.repository.UtilisateurRepository;
+import fr.polytech.projet.projetapi.repository.*;
+import org.springframework.data.projection.ProjectionFactory;
+import org.springframework.data.projection.SpelAwareProxyProjectionFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -19,11 +20,15 @@ public class ServiceMission {
     private final MissionRepository missionRepository;
     private final InscriptionRepository inscriptionRepository;
     private final UtilisateurRepository utilisateurRepository;
+    private final ActionMissionRepository actionMissionRepository;
+    private final ActionRepository actionRepository;
 
-    public ServiceMission(MissionRepository missionRepository, ServiceApprenant serviceApprenant, InscriptionRepository inscriptionRepository, UtilisateurRepository utilisateurRepository) {
+    public ServiceMission(MissionRepository missionRepository, ServiceApprenant serviceApprenant, InscriptionRepository inscriptionRepository, UtilisateurRepository utilisateurRepository, ActionMissionRepository actionMissionRepository, ActionRepository actionRepository) {
         this.missionRepository = missionRepository;
         this.inscriptionRepository = inscriptionRepository;
         this.utilisateurRepository = utilisateurRepository;
+        this.actionMissionRepository = actionMissionRepository;
+        this.actionRepository = actionRepository;
     }
 
     public List<Mission> getAllMissions() {
@@ -65,5 +70,35 @@ public class ServiceMission {
         inscription.setMission(mission);
         inscription.setDate(LocalDate.now());
         this.inscriptionRepository.save(inscription);
+    }
+
+    /**
+     * @param idMission ID de la mission
+     * @return Liste des actions de la mission
+     */
+    public List<ActionWithoutIndicator> findActionsByMissionId(int idMission) {
+        ProjectionFactory pf = new SpelAwareProxyProjectionFactory();
+        return this.actionMissionRepository.findById_FkMission(idMission)
+                .stream()
+                .map(actionMission -> this.actionRepository.findById(actionMission.getId().getFkAction()))
+                .map(action -> action.orElseThrow(NotExistException::new))
+                .map(action -> pf.createProjection(ActionWithoutIndicator.class, action))
+                .toList();
+    }
+
+    /**
+     * @param idMission ID de la mission
+     * @return Liste des action qui n'appartiennent pas à la mission
+     */
+    public List<ActionWithoutIndicator> findActionsByMissionNotInId(int idMission) {
+        ProjectionFactory pf = new SpelAwareProxyProjectionFactory();
+        List<Integer> idActions = this.findActionsByMissionId(idMission)
+                .stream()
+                .map(ActionWithoutIndicator::getId)
+                .toList();
+        return this.actionRepository.findByIdNotIn(idActions)
+                .stream()
+                .map(action -> pf.createProjection(ActionWithoutIndicator.class, action))
+                .toList();
     }
 }

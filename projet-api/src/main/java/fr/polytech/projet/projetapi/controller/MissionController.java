@@ -1,6 +1,7 @@
 package fr.polytech.projet.projetapi.controller;
 
 import fr.polytech.projet.projetapi.model.Mission;
+import fr.polytech.projet.projetapi.projection.ActionWithoutIndicator;
 import fr.polytech.projet.projetapi.projection.InscriptionInfo;
 import fr.polytech.projet.projetapi.service.ServiceMission;
 import org.slf4j.Logger;
@@ -53,5 +54,25 @@ public class MissionController {
         logger.info("REST GET inscription : {}", idUser);
         this.serviceMission.inscription(idUser, idMission);
         return ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    /**
+     * @param idMission ID de mission
+     * @return liste des ActionWithoutIndicator de la mission
+     */
+    @GetMapping("action/{idMission}")
+    public ResponseEntity<List<ActionWithoutIndicator>> getActionsOfMission(@PathVariable int idMission) {
+        logger.info("REST GET getActionsOfMission : {}", idMission);
+        return ResponseEntity.ok(this.serviceMission.findActionsByMissionId(idMission));
+    }
+
+    /**
+     * @param idMission ID de mission
+     * @return liste des ActionWithoutIndicator qui ne sont pas de la mission
+     */
+    @GetMapping("action/{idMission}/not")
+    public ResponseEntity<List<ActionWithoutIndicator>> getActionsOfMissionNotIn(@PathVariable int idMission) {
+        logger.info("REST GET getActionsOfMission : {}", idMission);
+        return ResponseEntity.ok(this.serviceMission.findActionsByMissionNotInId(idMission));
     }
 }
