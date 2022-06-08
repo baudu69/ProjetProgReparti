@@ -1,0 +1,6 @@
+/.gradle/
+/.idea/
+/projet-ui/.angular/
+/projet-ui/.gradle/
+/projet-ui/.vscode/
+/projet-ui/build/
