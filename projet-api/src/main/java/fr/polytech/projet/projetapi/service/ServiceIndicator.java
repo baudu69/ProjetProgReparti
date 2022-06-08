@@ -21,4 +21,8 @@ public class ServiceIndicator {
     public List<Indicator> getAllIndicatorsOfAnAction(int idAction) {
         return this.indicatorRepository.findByIdAction(idAction);
     }
+
+    public void addIndicatorToAnAction(Indicator indicator) {
+        this.indicatorRepository.save(indicator);
+    }
 }

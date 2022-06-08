@@ -7,11 +7,9 @@ import fr.polytech.projet.projetapi.service.ServiceIndicator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -45,5 +43,12 @@ public class ActionController {
     public ResponseEntity<List<Indicator>> findAllIndicatorOfAnAction(@PathVariable int idAction) {
         logger.info("REST GET findAllIndicatorOfAnAction : {}", idAction);
         return ResponseEntity.ok(this.serviceIndicator.getAllIndicatorsOfAnAction(idAction));
+    }
+
+    @PutMapping("/indicator")
+    public ResponseEntity<Boolean> addIndicatorToAnAction(@RequestBody Indicator indicator) {
+        logger.info("REST PUT addIndicatorToAnAction : {}", indicator);
+        this.serviceIndicator.addIndicatorToAnAction(indicator);
+        return ResponseEntity.created(URI.create("")).build();
     }
 }
