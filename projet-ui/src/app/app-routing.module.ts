@@ -4,12 +4,14 @@ import {AccueilComponent} from "./accueil/accueil.component";
 import {ListeApprenantComponent} from "./apprenant/liste-apprenant/liste-apprenant.component";
 import {ListeMissionComponent} from "./mission/liste-mission/liste-mission.component";
 import {ListeMissionApprenantComponent} from "./apprenant/liste-mission-apprenant/liste-mission-apprenant.component";
+import {ListeActionComponent} from "./action/liste-action/liste-action.component";
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
   {path: 'apprenant', component: ListeApprenantComponent},
   {path: 'mission', component: ListeMissionComponent},
   {path: 'apprenant/mission/:idApprenant', component: ListeMissionApprenantComponent},
+  {path: 'action', component: ListeActionComponent}
 ];
 
 @NgModule({

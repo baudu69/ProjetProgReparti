@@ -12,6 +12,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatButtonModule} from "@angular/material/button";
 import {ListeMissionComponent} from './mission/liste-mission/liste-mission.component';
 import {ListeMissionApprenantComponent} from './apprenant/liste-mission-apprenant/liste-mission-apprenant.component';
+import {ListeActionComponent} from './action/liste-action/liste-action.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {ListeMissionApprenantComponent} from './apprenant/liste-mission-apprenan
     AccueilComponent,
     ListeApprenantComponent,
     ListeMissionComponent,
-    ListeMissionApprenantComponent
+    ListeMissionApprenantComponent,
+    ListeActionComponent
   ],
   imports: [
     BrowserModule,
