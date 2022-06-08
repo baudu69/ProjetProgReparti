@@ -5,6 +5,7 @@ import fr.polytech.projet.projetapi.projection.InscriptionInfo;
 import fr.polytech.projet.projetapi.service.ServiceMission;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,5 +46,12 @@ public class MissionController {
     public ResponseEntity<List<Mission>> getMissionsNonInscritByUserId(@PathVariable int idUser) {
         logger.info("REST GET getMissionsNonInscritByUserId : {}", idUser);
         return ResponseEntity.ok(this.serviceMission.getMissionsNonInscritsByUserId(idUser));
+    }
+
+    @GetMapping("inscription/{idUser}/{idMission}")
+    public ResponseEntity<Boolean> inscription(@PathVariable int idUser, @PathVariable int idMission) {
+        logger.info("REST GET inscription : {}", idUser);
+        this.serviceMission.inscription(idUser, idMission);
+        return ResponseEntity.status(HttpStatus.OK).body(true);
     }
 }

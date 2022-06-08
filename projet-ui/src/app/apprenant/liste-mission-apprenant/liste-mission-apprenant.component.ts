@@ -59,4 +59,13 @@ export class ListeMissionApprenantComponent implements OnInit {
       });
   }
 
+  inscrire(idMission: number) {
+    this.inscriptionService.inscrire(this.idApprenant, idMission).subscribe(
+      (data) => {
+        if (data.ok) {
+          this.loadInscriptions()
+          this.loadMissionsDisponibles()
+        }
+      });
+  }
 }

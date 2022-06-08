@@ -23,7 +23,7 @@
     <ng-container matColumnDef="btn">
       <th *matHeaderCellDef mat-header-cell> Date</th>
       <td *matCellDef="let element" mat-cell>
-        <button color="primary" mat-raised-button>Inscription</button>
+        <button (click)="inscrire(element.id)" color="primary" mat-raised-button>Inscription</button>
       </td>
     </ng-container>
 

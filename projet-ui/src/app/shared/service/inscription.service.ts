@@ -19,4 +19,8 @@ export class InscriptionService {
   getMissionsUserNotInscrit(idUser: number): Observable<HttpResponse<IMission[]>> {
     return this.http.get<IMission[]>(`api/mission/user/noninscrit/${idUser}`, {observe: 'response'});
   }
+
+  inscrire(idUser: number, idMission: number): Observable<HttpResponse<boolean>> {
+    return this.http.get<boolean>(`api/mission/inscription/${idUser}/${idMission}`, {observe: 'response'});
+  }
 }
