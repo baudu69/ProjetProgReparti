@@ -35,6 +35,12 @@ public class ActionController {
         return ResponseEntity.ok(this.serviceAction.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Action> findActionById(@PathVariable("id") Integer id) {
+        logger.info("REST GET findActionById");
+        return ResponseEntity.of(this.serviceAction.findById(id));
+    }
+
     @GetMapping("/indicator/{idAction}")
     public ResponseEntity<List<Indicator>> findAllIndicatorOfAnAction(@PathVariable int idAction) {
         logger.info("REST GET findAllIndicatorOfAnAction : {}", idAction);

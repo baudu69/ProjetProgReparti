@@ -5,6 +5,7 @@ import fr.polytech.projet.projetapi.repository.ActionRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ServiceAction {
@@ -19,5 +20,9 @@ public class ServiceAction {
      */
     public List<Action> findAll() {
         return actionRepository.findAll();
+    }
+
+    public Optional<Action> findById(int id) {
+        return actionRepository.findById(id);
     }
 }
