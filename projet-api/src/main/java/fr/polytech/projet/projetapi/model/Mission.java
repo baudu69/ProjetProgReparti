@@ -1,6 +1,8 @@
 package fr.polytech.projet.projetapi.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "mission")
@@ -12,6 +14,17 @@ public class Mission {
 
 	@Column(name = "wording", length = 25)
 	private String wording;
+
+	@OneToMany(mappedBy = "idMission", orphanRemoval = true)
+	private List<Objectif> objectifs = new ArrayList<>();
+
+	public List<Objectif> getObjectifs() {
+		return objectifs;
+	}
+
+	public void setObjectifs(List<Objectif> objectifs) {
+		this.objectifs = objectifs;
+	}
 
 	public Integer getId() {
 		return id;
