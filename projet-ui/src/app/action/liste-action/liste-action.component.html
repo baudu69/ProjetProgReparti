@@ -1,5 +1,17 @@
 <div class="container">
   <h1>Liste des actions</h1>
+  <button (click)="diplayForm()" color="primary" mat-raised-button>Afficher formulaire ajout d'une action</button>
+  <form (ngSubmit)="onSubmit()" *ngIf="displayForm" [formGroup]="formAdd" class="example-form">
+    <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>Nom de l'action</mat-label>
+      <input formControlName="wording" matInput placeholder="example">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>Score minimum</mat-label>
+      <input formControlName="scoreMinimum" matInput placeholder="-1" type="number" value="0">
+    </mat-form-field>
+    <button mat-raised-button type="submit">Valider</button>
+  </form>
   <table [dataSource]="actions" class="mat-elevation-z8" mat-table>
     <ng-container matColumnDef="id">
       <th *matHeaderCellDef mat-header-cell> ID</th>

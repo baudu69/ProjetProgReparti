@@ -18,4 +18,8 @@ export class ActionService {
   getActionById(id: number): Observable<HttpResponse<IAction>> {
     return this.http.get<IAction>(`/api/action/${id}`, {observe: 'response'});
   }
+
+  addAction(action: IAction): Observable<HttpResponse<any>> {
+    return this.http.put<any>('/api/action', action, {observe: 'response'});
+  }
 }
