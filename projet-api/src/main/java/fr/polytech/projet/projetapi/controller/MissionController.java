@@ -75,4 +75,11 @@ public class MissionController {
         logger.info("REST GET getActionsOfMission : {}", idMission);
         return ResponseEntity.ok(this.serviceMission.findActionsByMissionNotInId(idMission));
     }
+
+    @GetMapping("action/{idMission}/{idAction}")
+    public ResponseEntity<Boolean> addActionToMission(@PathVariable int idAction, @PathVariable int idMission) {
+        logger.info("REST GET addActionToMission : {}", idAction);
+        this.serviceMission.addActionToMission(idAction, idMission);
+        return ResponseEntity.status(HttpStatus.OK).body(true);
+    }
 }

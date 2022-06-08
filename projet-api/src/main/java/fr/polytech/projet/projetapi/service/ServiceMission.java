@@ -1,9 +1,7 @@
 package fr.polytech.projet.projetapi.service;
 
 import fr.polytech.projet.projetapi.exception.NotExistException;
-import fr.polytech.projet.projetapi.model.Inscription;
-import fr.polytech.projet.projetapi.model.Mission;
-import fr.polytech.projet.projetapi.model.Utilisateur;
+import fr.polytech.projet.projetapi.model.*;
 import fr.polytech.projet.projetapi.projection.ActionWithoutIndicator;
 import fr.polytech.projet.projetapi.projection.InscriptionInfo;
 import fr.polytech.projet.projetapi.repository.*;
@@ -100,5 +98,22 @@ public class ServiceMission {
                 .stream()
                 .map(action -> pf.createProjection(ActionWithoutIndicator.class, action))
                 .toList();
+    }
+
+    /**
+     * Ajoute une action à une mission
+     *
+     * @param idMission ID de la mission
+     * @param idAction  ID de l'action
+     */
+    public void addActionToMission(int idMission, int idAction) {
+        Mission mission = missionRepository.findById(idMission).orElseThrow(NotExistException::new);
+        Action action = actionRepository.findById(idAction).orElseThrow(NotExistException::new);
+        ActionMissionId actionMissionId = new ActionMissionId();
+        actionMissionId.setFkAction(action.getId());
+        actionMissionId.setFkMission(mission.getId());
+        ActionMission actionMission = new ActionMission();
+        actionMission.setId(actionMissionId);
+        actionMissionRepository.save(actionMission);
     }
 }
