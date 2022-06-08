@@ -25,4 +25,8 @@ public class ServiceAction {
     public Optional<Action> findById(int id) {
         return actionRepository.findById(id);
     }
+
+    public void ajouterAction(Action action) {
+        actionRepository.save(action);
+    }
 }

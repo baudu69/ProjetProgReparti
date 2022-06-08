@@ -51,4 +51,11 @@ public class ActionController {
         this.serviceIndicator.addIndicatorToAnAction(indicator);
         return ResponseEntity.created(URI.create("")).build();
     }
+
+    @PutMapping
+    public ResponseEntity<Boolean> addAction(@RequestBody Action action) {
+        logger.info("REST PUT addAction : {}", action);
+        this.serviceAction.ajouterAction(action);
+        return ResponseEntity.created(URI.create("")).build();
+    }
 }
