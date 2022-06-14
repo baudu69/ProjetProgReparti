@@ -19,15 +19,14 @@ public class Inscription {
     private Utilisateur utilisateur;
 
     @ManyToOne
-    @JoinColumn(name = "fk_mission")
-    private Mission mission;
+    private Jeu jeu;
 
-    public Mission getMission() {
-        return mission;
+    public Jeu getJeu() {
+        return jeu;
     }
 
-    public void setMission(Mission mission) {
-        this.mission = mission;
+    public void setJeu(Jeu jeu) {
+        this.jeu = jeu;
     }
 
     public Utilisateur getUtilisateur() {
@@ -60,6 +59,6 @@ public class Inscription {
                 "id = " + id + ", " +
                 "date = " + date + ", " +
                 "utilisateur = " + utilisateur + ", " +
-                "mission = " + mission + ")";
+                "jeu = " + jeu + ")";
     }
 }
