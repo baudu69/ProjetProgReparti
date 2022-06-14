@@ -1,5 +1,6 @@
 package fr.polytech.projet.projetapi.controller;
 
+import fr.polytech.projet.projetapi.dto.Bilan;
 import fr.polytech.projet.projetapi.model.Utilisateur;
 import fr.polytech.projet.projetapi.projection.UtilisateurInfo;
 import fr.polytech.projet.projetapi.service.ServiceApprenant;
@@ -57,5 +58,11 @@ public class ApprenantController {
 				Integer.parseInt(map.get("score")),
 				map.get("retourMoniteur"));
 		return ResponseEntity.noContent().build();
+	}
+
+	@GetMapping("/{idApprenant}/bilan")
+	public ResponseEntity<Bilan> getBilanApprenant(@PathVariable int idApprenant) {
+		logger.info("REST GET getBilanApprenant : {}", idApprenant);
+		return ResponseEntity.ok(this.serviceApprenant.getBilanOfAnUser(idApprenant));
 	}
 }
