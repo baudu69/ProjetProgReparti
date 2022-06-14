@@ -9,6 +9,7 @@ import {ListeIndicatorsComponent} from "./action/liste-action/liste-indicators/l
 import {ListeActionMissionComponent} from "./mission/liste-mission/liste-action-mission/liste-action-mission.component";
 import {ListeJeuComponent} from "./jeu/liste-jeu/liste-jeu.component";
 import {ListeMissionJeuComponent} from "./jeu/liste-jeu/liste-mission-jeu/liste-mission-jeu.component";
+import {EnregistrerActionComponent} from "./action/enregistrer-action/enregistrer-action.component";
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'action', component: ListeActionComponent},
   {path: 'action/indicators/:idIndicator', component: ListeIndicatorsComponent},
   {path: 'jeu', component: ListeJeuComponent},
-  {path: 'jeu/missions/:idJeu', component: ListeMissionJeuComponent}
+  {path: 'jeu/missions/:idJeu', component: ListeMissionJeuComponent},
+  {path: 'enregistrerAction', component: EnregistrerActionComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Enregistrer une action</h1>
+  <form (submit)="submit()" [formGroup]="frmChoix">
+    <mat-form-field appearance="fill">
+      <mat-label>Apprenant</mat-label>
+      <mat-select (selectionChange)="tryLoadIndicators()" formControlName="apprenant">
+        <mat-option *ngFor="let apprenant of apprenants" [value]="apprenant">
+          {{apprenant.forename}} {{apprenant.surname}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Action</mat-label>
+      <mat-select (selectionChange)="tryLoadIndicators()" formControlName="action">
+        <mat-option *ngFor="let action of actions" [value]="action">
+          {{action.wording}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <ng-container *ngIf="indicators.length !== 0 && actionChoisie">
+      <h2>Indicators</h2>
+      <mat-checkbox (change)="clickIndicator($event, indicator)" *ngFor="let indicator of indicators"
+                    class="example-margin">{{indicator.wording}}</mat-checkbox>
+      <p>Score minimum pour completer l'action : {{actionChoisie.scoreMinimum}}</p>
+      <p>Score total : {{scoreTotal}}</p>
+      <textarea formControlName="retourMoniteur"></textarea>
+      <button color="primary" mat-raised-button type="submit">Enregistrer</button>
+    </ng-container>
+  </form>
+</div>

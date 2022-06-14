@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/apprenant")
@@ -37,13 +38,24 @@ public class ApprenantController {
 	public ResponseEntity<?> addApprenant(@RequestBody Utilisateur utilisateur) {
 		logger.info("REST PUT addApprenant : {}", utilisateur);
 		this.serviceApprenant.addApprenant(utilisateur);
-		return ResponseEntity.created(URI.create("/api/apprenant/"+utilisateur.getId())).build();
+		return ResponseEntity.created(URI.create("/api/apprenant/" + utilisateur.getId())).build();
 	}
 
 	@DeleteMapping("{idApprenant}")
 	public ResponseEntity<?> deleteApprenant(@PathVariable int idApprenant) {
 		logger.info("REST DELETE deleteApprenant : {}", idApprenant);
 		this.serviceApprenant.deleteApprenant(idApprenant);
+		return ResponseEntity.noContent().build();
+	}
+
+	@PostMapping("/score")
+	public ResponseEntity<?> obtenirAction(@RequestBody Map<String, String> map) {
+		logger.info("REST POST obtenirAction : {}", map);
+		this.serviceApprenant.obtenirAction(
+				Integer.parseInt(map.get("idApprenant")),
+				Integer.parseInt(map.get("idAction")),
+				Integer.parseInt(map.get("score")),
+				map.get("retourMoniteur"));
 		return ResponseEntity.noContent().build();
 	}
 }

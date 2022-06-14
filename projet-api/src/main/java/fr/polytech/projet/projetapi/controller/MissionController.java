@@ -2,7 +2,6 @@ package fr.polytech.projet.projetapi.controller;
 
 import fr.polytech.projet.projetapi.model.Mission;
 import fr.polytech.projet.projetapi.projection.ActionWithoutIndicator;
-import fr.polytech.projet.projetapi.projection.InscriptionInfo;
 import fr.polytech.projet.projetapi.service.ServiceMission;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,25 +34,6 @@ public class MissionController {
     public ResponseEntity<Mission> getMissionById(@PathVariable int id) {
         logger.info("REST GET getMissionById : {}", id);
         return ResponseEntity.of(this.serviceMission.getMissionById(id));
-    }
-
-    @GetMapping("/user/{idUser}")
-    public ResponseEntity<List<InscriptionInfo>> getMissionsByUserId(@PathVariable int idUser) {
-        logger.info("REST GET getMissionsByUserId : {}", idUser);
-        return ResponseEntity.ok(this.serviceMission.getMissionsByUserId(idUser));
-    }
-
-    @GetMapping("/user/noninscrit/{idUser}")
-    public ResponseEntity<List<Mission>> getMissionsNonInscritByUserId(@PathVariable int idUser) {
-        logger.info("REST GET getMissionsNonInscritByUserId : {}", idUser);
-        return ResponseEntity.ok(this.serviceMission.getMissionsNonInscritsByUserId(idUser));
-    }
-
-    @GetMapping("inscription/{idUser}/{idMission}")
-    public ResponseEntity<Boolean> inscription(@PathVariable int idUser, @PathVariable int idMission) {
-        logger.info("REST GET inscription : {}", idUser);
-        this.serviceMission.inscription(idUser, idMission);
-        return ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
     /**

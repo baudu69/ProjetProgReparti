@@ -16,12 +16,15 @@ import {ListeActionComponent} from './action/liste-action/liste-action.component
 import {ListeIndicatorsComponent} from './action/liste-action/liste-indicators/liste-indicators.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ListeActionMissionComponent} from './mission/liste-mission/liste-action-mission/liste-action-mission.component';
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { ListeJeuComponent } from './jeu/liste-jeu/liste-jeu.component';
 import { ListeMissionJeuComponent } from './jeu/liste-jeu/liste-mission-jeu/liste-mission-jeu.component';
+import {EnregistrerActionComponent} from './action/enregistrer-action/enregistrer-action.component';
+import {MatSelectModule} from "@angular/material/select";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { ListeMissionJeuComponent } from './jeu/liste-jeu/liste-mission-jeu/list
     ListeIndicatorsComponent,
     ListeActionMissionComponent,
     ListeJeuComponent,
-    ListeMissionJeuComponent
+    ListeMissionJeuComponent,
+    EnregistrerActionComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,9 @@ import { ListeMissionJeuComponent } from './jeu/liste-jeu/liste-mission-jeu/list
     ReactiveFormsModule,
     DragDropModule,
     MatSnackBarModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
