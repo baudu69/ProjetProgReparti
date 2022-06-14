@@ -14,7 +14,7 @@ public class Inscription {
     @Column(name = "date")
     private LocalDate date;
 
-    @OneToOne(orphanRemoval = true)
+    @ManyToOne
     @JoinColumn(name = "fk_user")
     private Utilisateur utilisateur;
 

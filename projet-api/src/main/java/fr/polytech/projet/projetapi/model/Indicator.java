@@ -22,6 +22,8 @@ public class Indicator {
 	@Column(name = "valueIfUnCheck")
 	private Integer valueIfUnCheck;
 
+	private Integer poids;
+
 	public Integer getId() {
 		return id;
 	}
@@ -62,6 +64,14 @@ public class Indicator {
 		this.valueIfUnCheck = valueIfUnCheck;
 	}
 
+	public Integer getPoids() {
+		return poids;
+	}
+
+	public void setPoids(Integer poids) {
+		this.poids = poids;
+	}
+
 	@Override
 	public String toString() {
 		return getClass().getSimpleName() + "(" +
@@ -69,6 +79,7 @@ public class Indicator {
 				"idAction = " + idAction + ", " +
 				"wording = " + wording + ", " +
 				"valueIfCheck = " + valueIfCheck + ", " +
-				"valueIfUnCheck = " + valueIfUnCheck + ")";
+				"valueIfUnCheck = " + valueIfUnCheck + ")" +
+				"poids = " + poids;
 	}
 }

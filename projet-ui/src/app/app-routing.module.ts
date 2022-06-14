@@ -7,6 +7,7 @@ import {ListeMissionApprenantComponent} from "./apprenant/liste-mission-apprenan
 import {ListeActionComponent} from "./action/liste-action/liste-action.component";
 import {ListeIndicatorsComponent} from "./action/liste-action/liste-indicators/liste-indicators.component";
 import {ListeActionMissionComponent} from "./mission/liste-mission/liste-action-mission/liste-action-mission.component";
+import {EnregistrerActionComponent} from "./action/enregistrer-action/enregistrer-action.component";
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'mission/action/:idMission', component: ListeActionMissionComponent},
   {path: 'apprenant/mission/:idApprenant', component: ListeMissionApprenantComponent},
   {path: 'action', component: ListeActionComponent},
-  {path: 'action/indicators/:idIndicator', component: ListeIndicatorsComponent}
+  {path: 'action/indicators/:idIndicator', component: ListeIndicatorsComponent},
+  {path: 'enregistrerAction', component: EnregistrerActionComponent},
 ];
 
 @NgModule({
