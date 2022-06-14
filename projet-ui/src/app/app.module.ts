@@ -20,6 +20,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ListeActionMissionComponent} from './mission/liste-mission/liste-action-mission/liste-action-mission.component';
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { ListeJeuComponent } from './jeu/liste-jeu/liste-jeu.component';
+import { ListeMissionJeuComponent } from './jeu/liste-jeu/liste-mission-jeu/liste-mission-jeu.component';
 import {EnregistrerActionComponent} from './action/enregistrer-action/enregistrer-action.component';
 import {MatSelectModule} from "@angular/material/select";
 import {MatCheckboxModule} from "@angular/material/checkbox";
@@ -43,7 +45,10 @@ import {MatExpansionModule} from "@angular/material/expansion";
     EnregistrerActionComponent,
     BilanComponent,
     MissionBilanComponent,
-    ActionBilanComponent
+    ActionBilanComponent,
+    ListeJeuComponent,
+    ListeMissionJeuComponent,
+    EnregistrerActionComponent
   ],
   imports: [
     BrowserModule,
