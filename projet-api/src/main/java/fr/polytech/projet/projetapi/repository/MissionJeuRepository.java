@@ -8,6 +8,8 @@ import java.util.Collection;
 import java.util.List;
 
 public interface MissionJeuRepository extends JpaRepository<MissionJeu, MissionJeuId> {
+	List<MissionJeu> findById_IdJeu(Integer idJeu);
+
 	List<MissionJeu> findById_IdJeuIn(Collection<Integer> idJeus);
 
 }
