@@ -3,6 +3,7 @@ import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IApprenant} from "../shared/metier/Apprenant";
 import {IAction} from "../shared/metier/Action";
+import {IBilan} from "../shared/metier/Bilan";
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,9 @@ export class ApprenantService {
       score: scoreTotal,
       retourMoniteur: retourMoniteur
     }, {observe: "response"});
+  }
+
+  getBilan(idApprenant: number): Observable<HttpResponse<IBilan>> {
+    return this.http.get<IBilan>(`api/apprenant/bilan/${idApprenant}`, {observe: "response"});
   }
 }

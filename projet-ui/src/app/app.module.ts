@@ -23,6 +23,11 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {EnregistrerActionComponent} from './action/enregistrer-action/enregistrer-action.component';
 import {MatSelectModule} from "@angular/material/select";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {BilanComponent} from './apprenant/bilan/bilan.component';
+import {MissionBilanComponent} from './apprenant/bilan/mission-bilan/mission-bilan.component';
+import {ActionBilanComponent} from './apprenant/bilan/mission-bilan/action-bilan/action-bilan.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -35,7 +40,10 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     ListeActionComponent,
     ListeIndicatorsComponent,
     ListeActionMissionComponent,
-    EnregistrerActionComponent
+    EnregistrerActionComponent,
+    BilanComponent,
+    MissionBilanComponent,
+    ActionBilanComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +60,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MatSelectModule,
     MatCheckboxModule,
     FormsModule,
+    MatCardModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

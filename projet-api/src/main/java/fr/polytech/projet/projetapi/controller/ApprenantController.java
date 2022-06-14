@@ -60,7 +60,7 @@ public class ApprenantController {
 		return ResponseEntity.noContent().build();
 	}
 
-	@GetMapping("/{idApprenant}/bilan")
+	@GetMapping("/bilan/{idApprenant}")
 	public ResponseEntity<Bilan> getBilanApprenant(@PathVariable int idApprenant) {
 		logger.info("REST GET getBilanApprenant : {}", idApprenant);
 		return ResponseEntity.ok(this.serviceApprenant.getBilanOfAnUser(idApprenant));

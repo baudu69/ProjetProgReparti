@@ -10,7 +10,7 @@ import {IApprenant} from "../../shared/metier/Apprenant";
 export class ListeApprenantComponent implements OnInit {
 
   apprenants: IApprenant[] = [];
-  displayedColumns: string[] = ['id', 'nom', 'prenom', 'missions', 'modifier', 'supprimer'];
+  displayedColumns: string[] = ['id', 'nom', 'prenom', 'missions', 'bilan', 'modifier', 'supprimer'];
 
   constructor(private serviceApprenant: ApprenantService) {
   }

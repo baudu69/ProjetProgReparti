@@ -1,0 +1,4 @@
+<ng-container *ngIf="missionBilan">
+  <app-action-bilan *ngFor="let actionBilan of missionBilan.actionBilans"
+                    [actionBilan]="actionBilan"></app-action-bilan>
+</ng-container>
