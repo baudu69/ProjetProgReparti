@@ -7,6 +7,8 @@ import {ListeMissionApprenantComponent} from "./apprenant/liste-mission-apprenan
 import {ListeActionComponent} from "./action/liste-action/liste-action.component";
 import {ListeIndicatorsComponent} from "./action/liste-action/liste-indicators/liste-indicators.component";
 import {ListeActionMissionComponent} from "./mission/liste-mission/liste-action-mission/liste-action-mission.component";
+import {ListeJeuComponent} from "./jeu/liste-jeu/liste-jeu.component";
+import {ListeMissionJeuComponent} from "./jeu/liste-jeu/liste-mission-jeu/liste-mission-jeu.component";
 import {EnregistrerActionComponent} from "./action/enregistrer-action/enregistrer-action.component";
 
 const routes: Routes = [
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path: 'apprenant/mission/:idApprenant', component: ListeMissionApprenantComponent},
   {path: 'action', component: ListeActionComponent},
   {path: 'action/indicators/:idIndicator', component: ListeIndicatorsComponent},
-  {path: 'enregistrerAction', component: EnregistrerActionComponent},
+  {path: 'jeu', component: ListeJeuComponent},
+  {path: 'jeu/missions/:idJeu', component: ListeMissionJeuComponent},
+  {path: 'enregistrerAction', component: EnregistrerActionComponent}
 ];
 
 @NgModule({
