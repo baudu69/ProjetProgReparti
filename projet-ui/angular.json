@@ -111,5 +111,8 @@
       }
     }
   },
-  "defaultProject": "projet-ui"
+  "defaultProject": "projet-ui",
+  "cli": {
+    "analytics": false
+  }
 }

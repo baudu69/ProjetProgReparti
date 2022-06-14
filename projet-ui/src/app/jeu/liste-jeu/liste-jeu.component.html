@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Liste des jeux : </h1>
+  <table [dataSource]="jeux" class="mat-elevation-z8" mat-table>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell> Numéro</th>
+      <td *matCellDef="let element" mat-cell> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="libelle">
+      <th *matHeaderCellDef mat-header-cell> Libellé</th>
+      <td *matCellDef="let element" mat-cell> {{element.libelle}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="listeMissions">
+      <th *matHeaderCellDef mat-header-cell> Missions</th>
+      <td *matCellDef="let element" mat-cell><a routerLink="missions/{{element.id}}">
+        <button color="primary" mat-raised-button>Liste des missions</button>
+      </a></td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+</div>
+

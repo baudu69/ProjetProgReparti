@@ -20,6 +20,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {ListeActionMissionComponent} from './mission/liste-mission/liste-action-mission/liste-action-mission.component';
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { ListeJeuComponent } from './jeu/liste-jeu/liste-jeu.component';
+import { ListeMissionJeuComponent } from './jeu/liste-jeu/liste-mission-jeu/liste-mission-jeu.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     ListeMissionApprenantComponent,
     ListeActionComponent,
     ListeIndicatorsComponent,
-    ListeActionMissionComponent
+    ListeActionMissionComponent,
+    ListeJeuComponent,
+    ListeMissionJeuComponent
   ],
   imports: [
     BrowserModule,
