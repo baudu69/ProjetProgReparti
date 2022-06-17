@@ -8,7 +8,8 @@
             {{mission.mission.wording}}
           </mat-panel-title>
           <mat-panel-description>
-            {{mission.mission.id}}
+            <p *ngIf="mission.completed">Mission completé</p>
+            <p *ngIf="!mission.completed">Mission à completer</p>
           </mat-panel-description>
         </mat-expansion-panel-header>
         <app-mission-bilan [missionBilan]="mission"></app-mission-bilan>

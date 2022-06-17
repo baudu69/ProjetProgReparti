@@ -11,6 +11,7 @@ export interface IBilan {
 export interface IMissionBilan {
   mission: IMission;
   actionBilans: IActionBilan[];
+  completed: boolean;
 }
 
 export interface IActionBilan {

@@ -117,16 +117,22 @@ public class ServiceApprenant {
 						.collect(Collectors.toList()))
 				.stream()
 				.map(missionJeu -> this.missionRepository.findById(missionJeu.getId().getIdMission()).orElseThrow(NotExistException::new))
-				.map(mission -> new MissionBilan(mission, this.actionRepository.findByIdIn(mission.getObjectifs()
-								.stream()
-								.map(Objectif::getId)
-								.toList())
-						.stream()
-						.map(action -> new ActionBilan(action, obtenirs.stream()
-								.filter(obt -> Objects.equals(obt.getId().getIdAction(), action.getId()))
-								.findFirst()
-								.orElse(null)))
-						.toList()))
+				.distinct()
+				.map(mission -> {
+					List<ActionBilan> actions = this.actionRepository.findByIdIn(mission.getObjectifs()
+									.stream()
+									.map(Objectif::getId)
+									.toList())
+							.stream()
+							.map(action -> new ActionBilan(action, obtenirs.stream()
+									.filter(obt -> Objects.equals(obt.getId().getIdAction(), action.getId()))
+									.findFirst()
+									.orElse(null)))
+							.toList();
+					boolean completed = actions.stream()
+							.allMatch(ActionBilan::isCompleted);
+					return new MissionBilan(mission, actions, completed);
+				})
 				.toList());
 	}
 
