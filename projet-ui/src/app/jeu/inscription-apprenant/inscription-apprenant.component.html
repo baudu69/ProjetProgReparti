@@ -17,7 +17,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button color="primary" mat-raised-button type="submit">Inscription</button>
+    <button *ngIf="jeux.length > 0" color="primary" mat-raised-button type="submit">Inscription</button>
   </form>
 
 </div>
