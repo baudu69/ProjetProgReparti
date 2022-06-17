@@ -13,6 +13,7 @@ import fr.polytech.projet.projetapi.repository.UtilisateurRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,6 +50,20 @@ public class ServiceApprenant {
 
 	public Optional<Utilisateur> getById(int id) {
 		return this.utilisateurRepository.findById(id);
+	}
+
+	public List<UtilisateurInfo> getBySearch(String recherche) {
+		HashMap<Integer, UtilisateurInfo> mapUtilisateur = new HashMap<>();
+		String[] nameSplit = recherche.split(" ");
+		this.utilisateurRepository.findDistinctBySurnameOrForename(nameSplit[0], nameSplit[1] == null ? "" : nameSplit[1])
+				.stream()
+				.map(utilisateurInfo -> mapUtilisateur.putIfAbsent(utilisateurInfo.getId(), utilisateurInfo));
+
+		this.utilisateurRepository.findDistinctBySurnameOrForename(nameSplit[1] == null ? "" : nameSplit[1], nameSplit[0])
+				.stream()
+				.map(utilisateurInfo -> mapUtilisateur.putIfAbsent(utilisateurInfo.getId(), utilisateurInfo));
+
+		return mapUtilisateur.values().stream().toList();
 	}
 
 	/**

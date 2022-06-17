@@ -34,6 +34,12 @@ public class ApprenantController {
 		return ResponseEntity.of(this.serviceApprenant.getInfoById(idApprenant));
 	}
 
+	@GetMapping("/search={name}")
+	public ResponseEntity<List<UtilisateurInfo>> getBySearch(@PathVariable String name) {
+		logger.info("REST GET getBySearch : {}", name);
+		return ResponseEntity.ok(this.serviceApprenant.getBySearch(name));
+	}
+
 	@PutMapping
 	public ResponseEntity<?> addApprenant(@RequestBody Utilisateur utilisateur) {
 		logger.info("REST PUT addApprenant : {}", utilisateur);

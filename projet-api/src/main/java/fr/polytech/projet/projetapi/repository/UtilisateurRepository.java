@@ -12,4 +12,6 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Intege
 
 	Optional<UtilisateurInfo> findByIdAndRole(Integer id, String role);
 
+	List<UtilisateurInfo> findDistinctBySurnameOrForename(String surname, String forename);
+
 }
