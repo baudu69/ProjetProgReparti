@@ -39,6 +39,13 @@ public class ActionController {
         return ResponseEntity.of(this.serviceAction.findById(id));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteAction(@PathVariable int id) {
+        logger.info("REST DELETE deleteAction : {}", id);
+        this.serviceAction.deleteAction(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @GetMapping("/indicator/{idAction}")
     public ResponseEntity<List<Indicator>> findAllIndicatorOfAnAction(@PathVariable int idAction) {
         logger.info("REST GET findAllIndicatorOfAnAction : {}", idAction);

@@ -22,4 +22,8 @@ export class ActionService {
   addAction(action: IAction): Observable<HttpResponse<any>> {
     return this.http.put<any>('/api/action', action, {observe: 'response'});
   }
+
+  deleteAction(id: number): Observable<HttpResponse<any>> {
+    return this.http.delete(`api/action/${id}`, {observe: "response"});
+  }
 }

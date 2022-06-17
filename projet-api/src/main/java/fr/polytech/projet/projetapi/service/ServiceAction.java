@@ -1,5 +1,6 @@
 package fr.polytech.projet.projetapi.service;
 
+import fr.polytech.projet.projetapi.exception.NotExistException;
 import fr.polytech.projet.projetapi.model.Action;
 import fr.polytech.projet.projetapi.repository.ActionRepository;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,9 @@ public class ServiceAction {
 
     public void ajouterAction(Action action) {
         actionRepository.save(action);
+    }
+
+    public void deleteAction(int id) {
+        this.actionRepository.delete(this.actionRepository.findById(id).orElseThrow(NotExistException::new));
     }
 }

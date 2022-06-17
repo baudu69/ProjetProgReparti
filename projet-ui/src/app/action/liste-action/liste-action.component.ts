@@ -10,7 +10,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class ListeActionComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'scoreMini', 'listeIndicators'];
+  displayedColumns: string[] = ['id', 'name', 'scoreMini', 'listeIndicators', 'supprimer'];
 
   actions: IAction[] = [];
 
@@ -58,6 +58,16 @@ export class ListeActionComponent implements OnInit {
           this.loadActions()
         }
       });
+  }
+
+  supprimerAction(id: number) {
+    this.actionService.deleteAction(id).subscribe(
+      (data) => {
+        if (data.ok) {
+          this.actions = this.actions.filter(action => action.id !== id);
+        }
+      }
+    )
   }
 }
 
