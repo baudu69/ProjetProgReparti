@@ -13,8 +13,8 @@
 
     <ng-container matColumnDef="gestion">
       <th *matHeaderCellDef mat-header-cell> Gestion</th>
-      <td *matCellDef="let element" mat-cell><a routerLink="../../../mission/action/{{element.id}}">
-        <button color="primary" mat-raised-button>Liste des actions</button>
+      <td *matCellDef="let element" mat-cell><a routerLink="../{{element.id}}/objectifs/mission">
+        <button color="primary" mat-raised-button>Liste des Objectifs</button>
       </a></td>
     </ng-container>
 

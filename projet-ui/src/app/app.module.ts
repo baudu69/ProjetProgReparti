@@ -10,14 +10,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatButtonModule} from "@angular/material/button";
-import {ListeMissionComponent} from './mission/liste-mission/liste-mission.component';
 import {ListeMissionApprenantComponent} from './apprenant/liste-mission-apprenant/liste-mission-apprenant.component';
 import {ListeActionComponent} from './action/liste-action/liste-action.component';
 import {ListeIndicatorsComponent} from './action/liste-action/liste-indicators/liste-indicators.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {ListeActionMissionComponent} from './mission/liste-mission/liste-action-mission/liste-action-mission.component';
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {ListeJeuComponent} from './jeu/liste-jeu/liste-jeu.component';
@@ -32,6 +30,10 @@ import {MatCardModule} from "@angular/material/card";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {SearchApprenantComponent} from './apprenant/search-apprenant/search-apprenant.component';
 import {InscriptionApprenantComponent} from './jeu/inscription-apprenant/inscription-apprenant.component';
+import {ListeObjectifsComponent} from './jeu/liste-jeu/liste-mission-jeu/liste-objectifs/liste-objectifs.component';
+import {
+  ListeActionObjectifsComponent
+} from './jeu/liste-jeu/liste-mission-jeu/liste-objectifs/liste-action-objectifs/liste-action-objectifs.component';
 
 @NgModule({
   declarations: [
@@ -39,11 +41,9 @@ import {InscriptionApprenantComponent} from './jeu/inscription-apprenant/inscrip
     NavbarComponent,
     AccueilComponent,
     ListeApprenantComponent,
-    ListeMissionComponent,
     ListeMissionApprenantComponent,
     ListeActionComponent,
     ListeIndicatorsComponent,
-    ListeActionMissionComponent,
     EnregistrerActionComponent,
     BilanComponent,
     MissionBilanComponent,
@@ -52,7 +52,9 @@ import {InscriptionApprenantComponent} from './jeu/inscription-apprenant/inscrip
     ListeMissionJeuComponent,
     EnregistrerActionComponent,
     SearchApprenantComponent,
-    InscriptionApprenantComponent
+    InscriptionApprenantComponent,
+    ListeObjectifsComponent,
+    ListeActionObjectifsComponent,
   ],
   imports: [
     BrowserModule,

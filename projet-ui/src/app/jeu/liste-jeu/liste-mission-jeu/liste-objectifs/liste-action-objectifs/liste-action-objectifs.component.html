@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Liste des actions</h1>
+  <table [dataSource]="actions" class="mat-elevation-z8" mat-table>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell> ID</th>
+      <td *matCellDef="let element" mat-cell> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell> Nom</th>
+      <td *matCellDef="let element" mat-cell> {{element.wording}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="scoreMini">
+      <th *matHeaderCellDef mat-header-cell> Score minimum</th>
+      <td *matCellDef="let element" mat-cell> {{element.scoreMinimum}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="listeIndicators">
+      <th *matHeaderCellDef mat-header-cell> Liste des indicators</th>
+      <td *matCellDef="let element" mat-cell><a routerLink="/action/indicators/{{element.id}}">
+        <button color="primary" mat-raised-button>Indicators</button>
+      </a></td>
+    </ng-container>
+
+    <ng-container matColumnDef="supprimer">
+      <th *matHeaderCellDef mat-header-cell></th>
+      <td *matCellDef="let element" mat-cell>
+        <button (click)="supprimerAction(element.id)" color="warn" mat-raised-button>Supprimer</button>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+</div>

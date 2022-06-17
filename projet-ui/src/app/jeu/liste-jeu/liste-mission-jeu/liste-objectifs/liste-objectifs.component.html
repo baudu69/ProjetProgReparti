@@ -1,19 +1,17 @@
 <div class="container">
-  <h1>Liste des missions</h1>
-  <table [dataSource]="missions" class="mat-elevation-z8" mat-table>
+  <h1>Liste des objectifs</h1>
+  <table [dataSource]="objectifs" class="mat-elevation-z8" mat-table>
     <ng-container matColumnDef="id">
       <th *matHeaderCellDef mat-header-cell> ID</th>
       <td *matCellDef="let element" mat-cell> {{element.id}} </td>
     </ng-container>
-
-    <ng-container matColumnDef="name">
-      <th *matHeaderCellDef mat-header-cell> Nom</th>
-      <td *matCellDef="let element" mat-cell> {{element.wording}} </td>
+    <ng-container matColumnDef="libelle">
+      <th *matHeaderCellDef mat-header-cell> Libelle</th>
+      <td *matCellDef="let element" mat-cell> {{element.libObjectif}} </td>
     </ng-container>
-
-    <ng-container matColumnDef="gestion">
-      <th *matHeaderCellDef mat-header-cell> Gestion</th>
-      <td *matCellDef="let element" mat-cell><a routerLink="action/{{element.id}}">
+    <ng-container matColumnDef="actions">
+      <th *matHeaderCellDef mat-header-cell> Liste des actions</th>
+      <td *matCellDef="let element" mat-cell><a routerLink="/objectif/{{element.id}}/action">
         <button color="primary" mat-raised-button>Liste des actions</button>
       </a></td>
     </ng-container>
@@ -21,4 +19,5 @@
     <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
     <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
   </table>
+
 </div>
