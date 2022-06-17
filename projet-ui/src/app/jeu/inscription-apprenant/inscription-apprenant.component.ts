@@ -24,7 +24,7 @@ export class InscriptionApprenantComponent implements OnInit {
   constructor(
     private apprenantService: ApprenantService,
     private inscriptionService: InscriptionService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
   ) {
   }
 

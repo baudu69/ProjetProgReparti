@@ -8,6 +8,8 @@ import java.util.Collection;
 import java.util.List;
 
 public interface ObjectifActionRepository extends JpaRepository<ObjectifAction, ObjectifActionId> {
+	List<ObjectifAction> findById_IdObjectif(Integer idObjectif);
+
 	List<ObjectifAction> findById_IdObjectifIn(Collection<Integer> idObjectifs);
 
 }
