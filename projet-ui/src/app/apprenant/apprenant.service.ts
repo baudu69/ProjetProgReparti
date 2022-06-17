@@ -43,7 +43,7 @@ export class ApprenantService {
   }
 
   editApprenant(idApprenant: number, nomUtil: string, surname: string, forename: string): Observable<HttpResponse<any>> {
-    return this.http.post<IApprenant>('api/apprenant/edit',
+    return this.http.patch<IApprenant>('api/apprenant',
       {
         idApprenant: idApprenant,
         nomUtil: nomUtil,
@@ -51,5 +51,9 @@ export class ApprenantService {
         forename: forename
       },
       {observe: "response"});
+  }
+
+  addApprenant(apprenant: IApprenant): Observable<HttpResponse<any>> {
+    return this.http.put('api/apprenant', apprenant, {observe: "response"});
   }
 }

@@ -34,6 +34,7 @@ import {ListeObjectifsComponent} from './jeu/liste-jeu/liste-mission-jeu/liste-o
 import {
   ListeActionObjectifsComponent
 } from './jeu/liste-jeu/liste-mission-jeu/liste-objectifs/liste-action-objectifs/liste-action-objectifs.component';
+import {AddApprenantComponent} from './apprenant/add-apprenant/add-apprenant.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import {
     InscriptionApprenantComponent,
     ListeObjectifsComponent,
     ListeActionObjectifsComponent,
+    AddApprenantComponent,
   ],
   imports: [
     BrowserModule,

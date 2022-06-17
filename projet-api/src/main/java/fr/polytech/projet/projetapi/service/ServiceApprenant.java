@@ -3,7 +3,6 @@ package fr.polytech.projet.projetapi.service;
 import fr.polytech.projet.projetapi.dto.ActionBilan;
 import fr.polytech.projet.projetapi.dto.Bilan;
 import fr.polytech.projet.projetapi.dto.MissionBilan;
-import fr.polytech.projet.projetapi.exception.AlreadyExistException;
 import fr.polytech.projet.projetapi.exception.NotExistException;
 import fr.polytech.projet.projetapi.model.*;
 import fr.polytech.projet.projetapi.projection.UtilisateurInfo;
@@ -48,10 +47,23 @@ public class ServiceApprenant {
 		return this.utilisateurRepository.findByIdAndRole(id, NOM_ROLE);
 	}
 
+	public int getLastID() {
+		return this.utilisateurRepository.findByOrderByIdDesc().stream().map(Utilisateur::getId).findFirst().orElse(1);
+	}
+
 	public void addApprenant(Utilisateur utilisateur) {
-		if (!utilisateur.getRole().equals(NOM_ROLE)) throw new IllegalArgumentException("Le role ne correspond pas");
-		if (this.getInfoById(utilisateur.getId()).isPresent()) throw new AlreadyExistException();
-		this.utilisateurRepository.save(utilisateur);
+		utilisateur.setRole(NOM_ROLE);
+		utilisateur.setId(null);
+		utilisateur.setSalt("LOL");
+		Utilisateur utilisateur1 = new Utilisateur();
+		utilisateur1.setRole(utilisateur.getRole());
+		utilisateur1.setSalt(utilisateur.getSalt());
+		utilisateur1.setNomUtil(utilisateur.getNomUtil());
+		utilisateur1.setMotPasse(utilisateur.getMotPasse());
+		utilisateur1.setSurname(utilisateur.getSurname());
+		utilisateur1.setForename(utilisateur.getForename());
+		System.out.println(utilisateur1);
+		this.utilisateurRepository.save(utilisateur1);
 	}
 
 	public void editApprenant(int idApprenant, String nomUtil, String surname, String forename) {

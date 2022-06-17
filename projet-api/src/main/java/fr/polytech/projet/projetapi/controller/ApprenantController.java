@@ -72,7 +72,7 @@ public class ApprenantController {
 		return ResponseEntity.ok(this.serviceApprenant.getBilanOfAnUser(idApprenant));
 	}
 
-	@PostMapping("/edit")
+	@PatchMapping
 	public ResponseEntity<?> editApprenant(@RequestBody Map<String, String> map) {
 		logger.info("REST POST editApprenant : {}", map);
 		this.serviceApprenant.editApprenant(

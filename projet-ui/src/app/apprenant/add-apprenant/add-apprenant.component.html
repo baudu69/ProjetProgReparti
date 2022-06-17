@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Ajout d'un apprenant</h1>
+  <form (ngSubmit)="submit()" [formGroup]="formApprenant">
+    <mat-form-field appearance="fill">
+      <mat-label>Nom utilisateur</mat-label>
+      <input formControlName="nomUtil" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Mot de passe</mat-label>
+      <input formControlName="motPasse" matInput type="password">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Prénom</mat-label>
+      <input formControlName="forename" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input formControlName="surname" matInput>
+    </mat-form-field>
+    <button mat-raised-button type="submit">Inscrire</button>
+  </form>
+</div>

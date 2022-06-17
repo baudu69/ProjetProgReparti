@@ -15,10 +15,12 @@ import {ListeObjectifsComponent} from "./jeu/liste-jeu/liste-mission-jeu/liste-o
 import {
   ListeActionObjectifsComponent
 } from "./jeu/liste-jeu/liste-mission-jeu/liste-objectifs/liste-action-objectifs/liste-action-objectifs.component";
+import {AddApprenantComponent} from "./apprenant/add-apprenant/add-apprenant.component";
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
   {path: 'apprenant', component: ListeApprenantComponent},
+  {path: 'apprenant/add', component: AddApprenantComponent},
   {path: 'apprenant/bilan/:idApprenant', component: BilanComponent},
   {path: 'apprenant/search/:str', component: SearchApprenantComponent},
   {path: 'apprenant/search', component: SearchApprenantComponent},

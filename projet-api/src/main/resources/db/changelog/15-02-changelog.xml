@@ -130,7 +130,7 @@
     </changeSet>
     <changeSet id="1655301033876-12" author="Bastien Audu (generated)">
         <createTable tableName="utilisateur">
-            <column name="num_util" type="INT">
+            <column autoIncrement="true" name="num_util" type="INT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_utilisateur"/>
             </column>
             <column name="nom_util" type="VARCHAR(100)">
