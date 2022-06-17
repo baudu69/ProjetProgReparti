@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Inscription d'un apprenant</h1>
+  <form (ngSubmit)="inscription()" [formGroup]="formGroup">
+    <mat-form-field appearance="fill">
+      <mat-label>Apprenant</mat-label>
+      <mat-select (selectionChange)="loadJeux()" formControlName="apprenant">
+        <mat-option *ngFor="let apprenant of apprenants" [value]="apprenant">
+          {{apprenant.forename}} {{apprenant.surname}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="jeux.length > 0" appearance="fill">
+      <mat-label>Jeu</mat-label>
+      <mat-select formControlName="jeu">
+        <mat-option *ngFor="let jeu of jeux" [value]="jeu">
+          {{jeu.libelle}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button color="primary" mat-raised-button type="submit">Inscription</button>
+  </form>
+
+</div>

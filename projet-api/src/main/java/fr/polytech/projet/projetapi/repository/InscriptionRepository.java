@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface InscriptionRepository extends JpaRepository<Inscription, Integer> {
 	List<Inscription> findByUtilisateur_Id(Integer id);
+
+	List<Inscription> findByUtilisateur_IdAndJeu_Id(Integer id, Integer id1);
 }

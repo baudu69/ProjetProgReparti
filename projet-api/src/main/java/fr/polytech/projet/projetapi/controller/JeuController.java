@@ -43,4 +43,19 @@ public class JeuController {
         logger.info("REST GET findAllMissionOfAJeu");
         return ResponseEntity.ok(this.serviceJeu.findMissionsByJeuId(id));
     }
+
+    @GetMapping("/{idJeu}/inscription/{idUser}")
+    public ResponseEntity<?> inscriptionApprenantToAJeu(@PathVariable int idUser, @PathVariable int idJeu) {
+        logger.info("REST GET inscriptionApprenantToAJeu : User : {},  Jeu{}", idUser, idJeu);
+        this.serviceJeu.inscriptionApprenantToAJeu(idJeu, idUser);
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/jeuNonInscrit/{idUser}")
+    public ResponseEntity<List<Jeu>> getListeJeuxNonInscrit(@PathVariable int idUser) {
+        logger.info("REST GET getListeJeuxNonInscrit : User : {}", idUser);
+        return ResponseEntity.ok(this.serviceJeu.getJeuxApprenantNonInscrit(idUser));
+    }
+
+
 }

@@ -13,6 +13,7 @@ import {EnregistrerActionComponent} from "./action/enregistrer-action/enregistre
 import {BilanComponent} from "./apprenant/bilan/bilan.component";
 import {SearchApprenantComponent} from "./apprenant/search-apprenant/search-apprenant.component";
 import {EditApprenantComponent} from "./apprenant/edit-apprenant/edit-apprenant.component";
+import {InscriptionApprenantComponent} from "./jeu/inscription-apprenant/inscription-apprenant.component";
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'action', component: ListeActionComponent},
   {path: 'action/indicators/:idIndicator', component: ListeIndicatorsComponent},
   {path: 'jeu', component: ListeJeuComponent},
+  {path: 'jeu/inscription', component: InscriptionApprenantComponent},
   {path: 'jeu/missions/:idJeu', component: ListeMissionJeuComponent},
   {path: 'enregistrerAction', component: EnregistrerActionComponent},
 
