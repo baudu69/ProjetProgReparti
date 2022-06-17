@@ -5,6 +5,7 @@ import fr.polytech.projet.projetapi.exception.NotExistException;
 import fr.polytech.projet.projetapi.model.Inscription;
 import fr.polytech.projet.projetapi.model.Jeu;
 import fr.polytech.projet.projetapi.model.Mission;
+import fr.polytech.projet.projetapi.model.Utilisateur;
 import fr.polytech.projet.projetapi.repository.*;
 import org.springframework.data.projection.ProjectionFactory;
 import org.springframework.data.projection.SpelAwareProxyProjectionFactory;
@@ -65,5 +66,18 @@ public class ServiceJeu {
         inscription.setJeu(this.jeuRepository.findById(idJeu).orElseThrow(NotExistException::new));
         inscription.setDate(LocalDate.now());
         this.inscriptionRepository.save(inscription);
+    }
+
+    /**
+     * @param idApprenant ID de l'apprenant
+     * @return Liste des jeux auquels un apprenant n'est pas inscrit
+     */
+    public List<Jeu> getJeuxApprenantNonInscrit(int idApprenant) {
+        Utilisateur utilisateur = this.utilisateurRepository.findById(idApprenant).orElseThrow(NotExistException::new);
+        List<Inscription> inscriptions = this.inscriptionRepository.findByUtilisateur_Id(idApprenant);
+        return this.jeuRepository.findAll()
+                .stream()
+                .filter(jeu -> inscriptions.stream().noneMatch(inscription -> inscription.getJeu().equals(jeu)))
+                .toList();
     }
 }

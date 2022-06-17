@@ -3,6 +3,7 @@ import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IInscription} from "../metier/Inscription";
 import {IMission} from "../metier/Mission";
+import {IJeu} from "../metier/Jeu";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,11 @@ export class InscriptionService {
     return this.http.get<IMission[]>(`api/mission/user/noninscrit/${idUser}`, {observe: 'response'});
   }
 
-  inscrire(idUser: number, idMission: number): Observable<HttpResponse<boolean>> {
-    return this.http.get<boolean>(`api/mission/inscription/${idUser}/${idMission}`, {observe: 'response'});
+  inscrire(idUser: number, idJeu: number): Observable<HttpResponse<any>> {
+    return this.http.get<boolean>(`api/jeu/${idJeu}/inscription/${idUser}`, {observe: 'response'});
+  }
+
+  getJeuxNonInscrit(idUser: number): Observable<HttpResponse<IJeu[]>> {
+    return this.http.get<IJeu[]>(`api/jeu/jeuNonInscrit/${idUser}`, {observe: 'response'});
   }
 }
