@@ -67,12 +67,10 @@ public class ServiceApprenant {
 		HashMap<Integer, UtilisateurInfo> mapUtilisateur = new HashMap<>();
 		String[] nameSplit = recherche.split(" ");
 		this.utilisateurRepository.findDistinctBySurnameOrForename(nameSplit[0], nameSplit[1] == null ? "" : nameSplit[1])
-				.stream()
-				.map(utilisateurInfo -> mapUtilisateur.putIfAbsent(utilisateurInfo.getId(), utilisateurInfo));
+				.forEach(utilisateurInfo -> mapUtilisateur.putIfAbsent(utilisateurInfo.getId(), utilisateurInfo));
 
 		this.utilisateurRepository.findDistinctBySurnameOrForename(nameSplit[1] == null ? "" : nameSplit[1], nameSplit[0])
-				.stream()
-				.map(utilisateurInfo -> mapUtilisateur.putIfAbsent(utilisateurInfo.getId(), utilisateurInfo));
+				.forEach(utilisateurInfo -> mapUtilisateur.putIfAbsent(utilisateurInfo.getId(), utilisateurInfo));
 
 		return mapUtilisateur.values().stream().toList();
 	}
