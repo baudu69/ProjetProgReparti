@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1655301033876-1" author="Bastien Audu (generated)">
+        <createTable tableName="action">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_action"/>
+            </column>
+            <column name="fk_action" type="INT"/>
+            <column name="wording" type="VARCHAR(25)"/>
+            <column name="score_minimum" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1655301033876-2" author="Bastien Audu (generated)">
+        <createTable tableName="action__mission">
+            <column name="fk_action" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_action__mission"/>
+            </column>
+            <column name="fk_mission" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_action__mission"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1655301033876-3" author="Bastien Audu (generated)">
+        <createTable tableName="indicator">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_indicator"/>
+            </column>
+            <column name="fk_action" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="wording" type="VARCHAR(50)"/>
+            <column name="value_if_check" type="INT"/>
+            <column name="value_if_un_check" type="INT"/>
+            <column name="poids" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1655301033876-4" author="Bastien Audu (generated)">
+        <createTable tableName="inscription">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_inscription"/>
+            </column>
+            <column name="date" type="DATE"/>
+            <column name="fk_user" type="INT"/>
+            <column name="jeu_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1655301033876-5" author="Bastien Audu (generated)">
+        <createTable tableName="inscription__action">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_inscription__action"/>
+            </column>
+            <column name="fk_inscription" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fk_action" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort" type="INT"/>
+            <column name="score" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1655301033876-6" author="Bastien Audu (generated)">
+        <createTable tableName="jeu">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_jeu"/>
+            </column>
+            <column name="libelle" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1655301033876-7" author="Bastien Audu (generated)">
+        <createTable tableName="mission">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_mission"/>
+            </column>
+            <column name="wording" type="VARCHAR(25)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1655301033876-8" author="Bastien Audu (generated)">
+        <createTable tableName="mission_jeu">
+            <column name="id_mission" type="INT">
+                <constraints primaryKey="true" primaryKeyName="pk_missionjeu"/>
+            </column>
+            <column name="id_jeu" type="INT">
+                <constraints primaryKey="true" primaryKeyName="pk_missionjeu"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1655301033876-9" author="Bastien Audu (generated)">
+        <createTable tableName="objectif">
+            <column autoIncrement="true" name="num_objectif" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_objectif"/>
+            </column>
+            <column name="lib_objectif" type="VARCHAR(255)"/>
+            <column name="id_mission" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1655301033876-10" author="Bastien Audu (generated)">
+        <createTable tableName="objectif_action">
+            <column name="libelle" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_objectif" type="INT">
+                <constraints primaryKey="true" primaryKeyName="pk_objectifaction"/>
+            </column>
+            <column name="id_action" type="INT">
+                <constraints primaryKey="true" primaryKeyName="pk_objectifaction"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1655301033876-11" author="Bastien Audu (generated)">
+        <createTable tableName="obtenir">
+            <column name="date_obtention" type="DATE"/>
+            <column name="valeur_debut" type="INT"/>
+            <column name="valeur_fin" type="INT"/>
+            <column name="retour_moniteur" type="VARCHAR(255)"/>
+            <column name="id_apprenant" type="INT">
+                <constraints primaryKey="true" primaryKeyName="pk_obtenir"/>
+            </column>
+            <column name="id_action" type="INT">
+                <constraints primaryKey="true" primaryKeyName="pk_obtenir"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1655301033876-12" author="Bastien Audu (generated)">
+        <createTable tableName="utilisateur">
+            <column name="num_util" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_utilisateur"/>
+            </column>
+            <column name="nom_util" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mot_passe" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salt" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="surname" type="VARCHAR(50)"/>
+            <column name="forename" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1655301033876-13" author="Bastien Audu (generated)">
+        <addForeignKeyConstraint baseColumnNames="fk_user" baseTableName="inscription"
+                                 constraintName="FK_INSCRIPTION_ON_FK_USER" referencedColumnNames="num_util"
+                                 referencedTableName="utilisateur"/>
+    </changeSet>
+    <changeSet id="1655301033876-14" author="Bastien Audu (generated)">
+        <addForeignKeyConstraint baseColumnNames="jeu_id" baseTableName="inscription"
+                                 constraintName="FK_INSCRIPTION_ON_JEU" referencedColumnNames="id"
+                                 referencedTableName="jeu"/>
+    </changeSet>
+    <changeSet id="1655301033876-15" author="Bastien Audu (generated)">
+        <addForeignKeyConstraint baseColumnNames="fk_action" baseTableName="inscription__action"
+                                 constraintName="FK_INSCRIPTION__ACTION_ON_FK_ACTION" referencedColumnNames="id"
+                                 referencedTableName="action"/>
+    </changeSet>
+    <changeSet id="1655301033876-16" author="Bastien Audu (generated)">
+        <addForeignKeyConstraint baseColumnNames="fk_inscription" baseTableName="inscription__action"
+                                 constraintName="FK_INSCRIPTION__ACTION_ON_FK_INSCRIPTION" referencedColumnNames="id"
+                                 referencedTableName="inscription"/>
+    </changeSet>
+
+</databaseChangeLog>

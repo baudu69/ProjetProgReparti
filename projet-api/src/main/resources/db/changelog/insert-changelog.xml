@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="15158741548" author="Bastien Audu">
+        <!--    Insertion utilisateur-->
+        <insert tableName="utilisateur">
+            <column name="num_util">1</column>
+            <column name="nom_util">Merlot</column>
+            <column name="mot_passe">WFGexk0cocZHcs7qJuPawA==</column>
+            <column name="salt">nC+LkxSBRR5r/uSLrtB7MB7laCpEWRs5uUpLm3N2JqA=</column>
+            <column name="role">admin</column>
+            <column name="surname">John</column>
+            <column name="forename">Merlot</column>
+        </insert>
+        <insert tableName="utilisateur">
+            <column name="num_util">2</column>
+            <column name="nom_util">Lalande</column>
+            <column name="mot_passe">WFGexk0cocZHcs7qJuPawA==</column>
+            <column name="salt">nC+LkxSBRR5r/uSLrtB7MB7laCpEWRs5uUpLm3N2JqA=</column>
+            <column name="role">learner</column>
+            <column name="surname">Lalande</column>
+            <column name="forename">Pierre</column>
+        </insert>
+        <insert tableName="utilisateur">
+            <column name="num_util">3</column>
+            <column name="nom_util">Pinot</column>
+            <column name="mot_passe">WFGexk0cocZHcs7qJuPawA==</column>
+            <column name="salt">nC+LkxSBRR5r/uSLrtB7MB7laCpEWRs5uUpLm3N2JqA=</column>
+            <column name="role">learner</column>
+            <column name="surname">Pinot</column>
+            <column name="forename">Thibault</column>
+        </insert>
+        <insert tableName="utilisateur">
+            <column name="num_util">4</column>
+            <column name="nom_util">Henry</column>
+            <column name="mot_passe">WFGexk0cocZHcs7qJuPawA==</column>
+            <column name="salt">nC+LkxSBRR5r/uSLrtB7MB7laCpEWRs5uUpLm3N2JqA=</column>
+            <column name="role">learner</column>
+            <column name="surname">Henry</column>
+            <column name="forename">Jean</column>
+        </insert>
+
+        <!--    Insertion Jeu-->
+        <insert tableName="jeu">
+            <column name="id">1</column>
+            <column name="libelle">Jeu 1</column>
+        </insert>
+        <insert tableName="jeu">
+            <column name="id">2</column>
+            <column name="libelle">Jeu 2</column>
+        </insert>
+
+        <!--    Insertion Mission-->
+        <insert tableName="mission">
+            <column name="id">1</column>
+            <column name="wording">Mission A</column>
+        </insert>
+        <insert tableName="mission">
+            <column name="id">2</column>
+            <column name="wording">Mission B</column>
+        </insert>
+        <insert tableName="mission">
+            <column name="id">3</column>
+            <column name="wording">Mission C</column>
+        </insert>
+        <insert tableName="mission">
+            <column name="id">4</column>
+            <column name="wording">Mission D</column>
+        </insert>
+        <insert tableName="mission">
+            <column name="id">5</column>
+            <column name="wording">Mission E</column>
+        </insert>
+        <insert tableName="mission">
+            <column name="id">6</column>
+            <column name="wording">Mission F</column>
+        </insert>
+
+        <!--    Insert Mission-Jeu-->
+        <insert tableName="mission_jeu">
+            <column name="id_jeu">1</column>
+            <column name="id_mission">1</column>
+        </insert>
+        <insert tableName="mission_jeu">
+            <column name="id_jeu">1</column>
+            <column name="id_mission">2</column>
+        </insert>
+        <insert tableName="mission_jeu">
+            <column name="id_jeu">1</column>
+            <column name="id_mission">3</column>
+        </insert>
+        <insert tableName="mission_jeu">
+            <column name="id_jeu">1</column>
+            <column name="id_mission">4</column>
+        </insert>
+        <insert tableName="mission_jeu">
+            <column name="id_jeu">2</column>
+            <column name="id_mission">4</column>
+        </insert>
+        <insert tableName="mission_jeu">
+            <column name="id_jeu">2</column>
+            <column name="id_mission">5</column>
+        </insert>
+        <insert tableName="mission_jeu">
+            <column name="id_jeu">2</column>
+            <column name="id_mission">6</column>
+        </insert>
+
+        <!--    Insertion Objectif-->
+        <insert tableName="objectif">
+            <column name="num_objectif">1</column>
+            <column name="lib_objectif">Objectif A_1</column>
+            <column name="id_mission">1</column>
+        </insert>
+        <insert tableName="objectif">
+            <column name="num_objectif">2</column>
+            <column name="lib_objectif">Objectif A_2</column>
+            <column name="id_mission">1</column>
+        </insert>
+        <insert tableName="objectif">
+            <column name="num_objectif">3</column>
+            <column name="lib_objectif">Objectif A_3</column>
+            <column name="id_mission">1</column>
+        </insert>
+        <insert tableName="objectif">
+            <column name="num_objectif">4</column>
+            <column name="lib_objectif">Objectif B</column>
+            <column name="id_mission">2</column>
+        </insert>
+        <insert tableName="objectif">
+            <column name="num_objectif">5</column>
+            <column name="lib_objectif">Objectif C</column>
+            <column name="id_mission">3</column>
+        </insert>
+        <insert tableName="objectif">
+            <column name="num_objectif">6</column>
+            <column name="lib_objectif">Objectif D</column>
+            <column name="id_mission">4</column>
+        </insert>
+        <insert tableName="objectif">
+            <column name="num_objectif">7</column>
+            <column name="lib_objectif">Objectif E</column>
+            <column name="id_mission">5</column>
+        </insert>
+        <insert tableName="objectif">
+            <column name="num_objectif">8</column>
+            <column name="lib_objectif">Objectif F</column>
+            <column name="id_mission">6</column>
+        </insert>
+
+        <!--        Insertion Action-->
+        <insert tableName="action">
+            <column name="id">1</column>
+            <column name="fk_action"/>
+            <column name="wording">Se mettre en tenue</column>
+            <column name="score_minimum">4</column>
+        </insert>
+        <insert tableName="action">
+            <column name="id">2</column>
+            <column name="fk_action">1</column>
+            <column name="wording">Préparation véhicule</column>
+            <column name="score_minimum">2</column>
+        </insert>
+        <insert tableName="action">
+            <column name="id">3</column>
+            <column name="fk_action">2</column>
+            <column name="wording">Effectuer manoeuvre</column>
+            <column name="score_minimum">8</column>
+        </insert>
+        <insert tableName="action">
+            <column name="id">4</column>
+            <column name="fk_action"/>
+            <column name="wording">Analyser panne(s)</column>
+            <column name="score_minimum">2</column>
+        </insert>
+        <insert tableName="action">
+            <column name="id">5</column>
+            <column name="fk_action">4</column>
+            <column name="wording">Résoudre panne(s)</column>
+            <column name="score_minimum">5</column>
+        </insert>
+
+        <!--        Insertion Indicators-->
+        <insert tableName="indicator">
+            <column name="id">1</column>
+            <column name="fk_action">1</column>
+            <column name="wording">Prendre ses outils</column>
+            <column name="value_if_check">1</column>
+            <column name="value_if_un_check">-1</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">2</column>
+            <column name="fk_action">1</column>
+            <column name="wording">Mettre sa tenue correctement</column>
+            <column name="value_if_check">3</column>
+            <column name="value_if_un_check">-1</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">3</column>
+            <column name="fk_action">1</column>
+            <column name="wording">Vérifier ses outils</column>
+            <column name="value_if_check">4</column>
+            <column name="value_if_un_check">-2</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">4</column>
+            <column name="fk_action">1</column>
+            <column name="wording">Prendre des explosifs</column>
+            <column name="value_if_check">-1</column>
+            <column name="value_if_un_check">1</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">5</column>
+            <column name="fk_action">2</column>
+            <column name="wording">Vérifier l'état des pneus</column>
+            <column name="value_if_check">3</column>
+            <column name="value_if_un_check">-2</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">6</column>
+            <column name="fk_action">2</column>
+            <column name="wording">Vérifier le niveau d'huile moteur</column>
+            <column name="value_if_check">1</column>
+            <column name="value_if_un_check">0</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">7</column>
+            <column name="fk_action">2</column>
+            <column name="wording">Vérifier le niveau d'essence</column>
+            <column name="value_if_check">3</column>
+            <column name="value_if_un_check">-1</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">8</column>
+            <column name="fk_action">3</column>
+            <column name="wording">Conduire à 110 km/h</column>
+            <column name="value_if_check">-2</column>
+            <column name="value_if_un_check">2</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">9</column>
+            <column name="fk_action">3</column>
+            <column name="wording">Conduire les yeux ouverts</column>
+            <column name="value_if_check">3</column>
+            <column name="value_if_un_check">-6</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">10</column>
+            <column name="fk_action">3</column>
+            <column name="wording">Avoir les deux mains sur le volant</column>
+            <column name="value_if_check">1</column>
+            <column name="value_if_un_check">0</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">11</column>
+            <column name="fk_action">3</column>
+            <column name="wording">Réussir la manoeuvre</column>
+            <column name="value_if_check">6</column>
+            <column name="value_if_un_check">-2</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">12</column>
+            <column name="fk_action">3</column>
+            <column name="wording">Toucher le décor</column>
+            <column name="value_if_check">-3</column>
+            <column name="value_if_un_check">3</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">13</column>
+            <column name="fk_action">4</column>
+            <column name="wording">S'informer auprès des techniciens</column>
+            <column name="value_if_check">2</column>
+            <column name="value_if_un_check">0</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">14</column>
+            <column name="fk_action">4</column>
+            <column name="wording">Consulter le manuel</column>
+            <column name="value_if_check">1</column>
+            <column name="value_if_un_check">0</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">15</column>
+            <column name="fk_action">4</column>
+            <column name="wording">Respecter la procédure</column>
+            <column name="value_if_check">2</column>
+            <column name="value_if_un_check">-2</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">16</column>
+            <column name="fk_action">4</column>
+            <column name="wording">Demander de l'aide à la tour de contrôle</column>
+            <column name="value_if_check">-1</column>
+            <column name="value_if_un_check">1</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">17</column>
+            <column name="fk_action">5</column>
+            <column name="wording">Trouver la cause de la panne</column>
+            <column name="value_if_check">6</column>
+            <column name="value_if_un_check">-3</column>
+            <column name="poids">1</column>
+        </insert>
+        <insert tableName="indicator">
+            <column name="id">18</column>
+            <column name="fk_action">5</column>
+            <column name="wording">Utiliser les bons outils</column>
+            <column name="value_if_check">4</column>
+            <column name="value_if_un_check">-1</column>
+            <column name="poids">1</column>
+        </insert>
+
+        <!--        Insert Inscription-->
+        <insert tableName="inscription">
+            <column name="id">1</column>
+            <column name="fk_user">1</column>
+            <column name="date">2021-06-04</column>
+            <column name="jeu_id">1</column>
+        </insert>
+        <insert tableName="inscription">
+            <column name="id">2</column>
+            <column name="fk_user">1</column>
+            <column name="date">2021-06-04</column>
+            <column name="jeu_id">2</column>
+        </insert>
+        <insert tableName="inscription">
+            <column name="id">3</column>
+            <column name="fk_user">2</column>
+            <column name="date">2021-06-04</column>
+            <column name="jeu_id">1</column>
+        </insert>
+        <insert tableName="inscription">
+            <column name="id">4</column>
+            <column name="fk_user">2</column>
+            <column name="date">2021-06-04</column>
+            <column name="jeu_id">2</column>
+        </insert>
+
+        <!--        Insert Obtenir-->
+        <insert tableName="obtenir">
+            <column name="id_action">8</column>
+            <column name="id_apprenant">2</column>
+            <column name="date_obtention">2021-06-04</column>
+            <column name="valeur_debut">18</column>
+            <column name="valeur_fin">0</column>
+            <column name="retour_moniteur">ALALA</column>
+        </insert>
+        <insert tableName="obtenir">
+            <column name="id_action">1</column>
+            <column name="id_apprenant">2</column>
+            <column name="date_obtention">2021-06-04</column>
+            <column name="valeur_debut">4</column>
+            <column name="valeur_fin">0</column>
+            <column name="retour_moniteur">OLOLO</column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
