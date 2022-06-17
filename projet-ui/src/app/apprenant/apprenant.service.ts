@@ -37,4 +37,8 @@ export class ApprenantService {
   getBilan(idApprenant: number): Observable<HttpResponse<IBilan>> {
     return this.http.get<IBilan>(`api/apprenant/bilan/${idApprenant}`, {observe: "response"});
   }
+
+  searchApprenant(str: string): Observable<HttpResponse<IApprenant[]>> {
+    return this.http.get<IApprenant[]>(`api/apprenant/search=${str}`, {observe: "response"});
+  }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ApprenantService} from "../apprenant.service";
 import {IApprenant} from "../../shared/metier/Apprenant";
 
@@ -9,13 +9,22 @@ import {IApprenant} from "../../shared/metier/Apprenant";
 })
 export class ListeApprenantComponent implements OnInit {
 
-  apprenants: IApprenant[] = [];
+  @Input()
+  apprenants: IApprenant[] | undefined;
+
   displayedColumns: string[] = ['id', 'nom', 'prenom', 'missions', 'bilan', 'modifier', 'supprimer'];
 
   constructor(private serviceApprenant: ApprenantService) {
   }
 
   ngOnInit(): void {
+    if (this.apprenants == undefined) {
+      this.loadApprenants()
+    }
+
+  }
+
+  loadApprenants() {
     this.serviceApprenant.getAllApprenants().subscribe(
       (data) => {
         if (data.ok && data.body) {
@@ -27,7 +36,7 @@ export class ListeApprenantComponent implements OnInit {
   supprimerApprenant(id: number) {
     this.serviceApprenant.deleteApprenant(id).subscribe(
       (data) => {
-        if (data.ok) {
+        if (data.ok && this.apprenants) {
           this.apprenants = this.apprenants.filter(apprenant => apprenant.id !== id);
         }
       }

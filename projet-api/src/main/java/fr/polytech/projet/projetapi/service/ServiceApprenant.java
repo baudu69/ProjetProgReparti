@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -64,15 +63,15 @@ public class ServiceApprenant {
 	}
 
 	public List<UtilisateurInfo> getBySearch(String recherche) {
-		HashMap<Integer, UtilisateurInfo> mapUtilisateur = new HashMap<>();
-		String[] nameSplit = recherche.split(" ");
-		this.utilisateurRepository.findDistinctBySurnameOrForename(nameSplit[0], nameSplit[1] == null ? "" : nameSplit[1])
-				.forEach(utilisateurInfo -> mapUtilisateur.putIfAbsent(utilisateurInfo.getId(), utilisateurInfo));
-
-		this.utilisateurRepository.findDistinctBySurnameOrForename(nameSplit[1] == null ? "" : nameSplit[1], nameSplit[0])
-				.forEach(utilisateurInfo -> mapUtilisateur.putIfAbsent(utilisateurInfo.getId(), utilisateurInfo));
-
-		return mapUtilisateur.values().stream().toList();
+		if (recherche == null || recherche.isEmpty() || recherche.isBlank()) return this.getAll();
+		//Traitement dans le back car il ya a un bug dans hibernate qui empèche les requetes like
+		return this.getAll()
+				.stream()
+				.filter(
+						utilisateurInfo -> utilisateurInfo.getSurname().toLowerCase().contains(recherche.toLowerCase())
+								||
+								utilisateurInfo.getForename().toLowerCase().contains(recherche.toLowerCase()))
+				.toList();
 	}
 
 	/**

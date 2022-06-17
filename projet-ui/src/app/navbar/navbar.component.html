@@ -1,13 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Permis piste</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Nom apprenant" aria-label="nomApprenant">
-      <button class="btn btn-outline-success" type="submit">Rechercher</button>
-    </form>
+    <div class="d-flex">
+      <input [(ngModel)]="str" aria-label="nomApprenant" class="form-control me-2" placeholder="Nom apprenant"
+             type="search">
+      <button (click)="search()" class="btn btn-outline-success" type="submit">Rechercher</button>
+    </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -17,7 +19,8 @@
           <a class="nav-link" href="#" routerLink="mission">Missions</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
             Apprenants
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

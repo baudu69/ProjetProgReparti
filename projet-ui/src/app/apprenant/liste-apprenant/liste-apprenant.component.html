@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Liste des apprenants : </h1>
-  <table [dataSource]="apprenants" class="mat-elevation-z8" mat-table>
+  <table *ngIf="apprenants" [dataSource]="apprenants" class="mat-elevation-z8" mat-table>
     <ng-container matColumnDef="id">
       <th *matHeaderCellDef mat-header-cell> Numéro</th>
       <td *matCellDef="let element" mat-cell> {{element.id}} </td>
