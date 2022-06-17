@@ -10,6 +10,7 @@ import {ListeActionMissionComponent} from "./mission/liste-mission/liste-action-
 import {ListeJeuComponent} from "./jeu/liste-jeu/liste-jeu.component";
 import {ListeMissionJeuComponent} from "./jeu/liste-jeu/liste-mission-jeu/liste-mission-jeu.component";
 import {EnregistrerActionComponent} from "./action/enregistrer-action/enregistrer-action.component";
+import {BilanComponent} from "./apprenant/bilan/bilan.component";
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'mission', component: ListeMissionComponent},
   {path: 'mission/action/:idMission', component: ListeActionMissionComponent},
   {path: 'apprenant/mission/:idApprenant', component: ListeMissionApprenantComponent},
+  {path: 'apprenant/bilan/:idApprenant', component: BilanComponent},
   {path: 'action', component: ListeActionComponent},
   {path: 'action/indicators/:idIndicator', component: ListeIndicatorsComponent},
   {path: 'jeu', component: ListeJeuComponent},

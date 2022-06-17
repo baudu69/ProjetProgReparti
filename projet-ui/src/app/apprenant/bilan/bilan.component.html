@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Liste des missions</h1>
+  <ng-container *ngIf="bilan">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let mission of bilan.missionBilans">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{mission.mission.wording}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{mission.mission.id}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-mission-bilan [missionBilan]="mission"></app-mission-bilan>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </ng-container>
+</div>

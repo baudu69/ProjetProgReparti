@@ -7,28 +7,28 @@ import javax.persistence.*;
 public class Objectif {
     @Id
     @Column(name = "num_objectif", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "lib_objectif")
-    private Character libObjectif;
+    private String libObjectif;
 
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_mission")
-    private Mission idMission;
+    private Integer idMission;
 
-    public Mission getIdMission() {
+    public Integer getIdMission() {
         return idMission;
     }
 
-    public void setIdMission(Mission idMission) {
+    public void setIdMission(Integer idMission) {
         this.idMission = idMission;
     }
 
-    public Character getLibObjectif() {
+    public String getLibObjectif() {
         return libObjectif;
     }
 
-    public void setLibObjectif(Character libObjectif) {
+    public void setLibObjectif(String libObjectif) {
         this.libObjectif = libObjectif;
     }
 

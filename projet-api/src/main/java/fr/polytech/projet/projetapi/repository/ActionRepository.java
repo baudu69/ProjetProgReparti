@@ -7,5 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 public interface ActionRepository extends JpaRepository<Action, Integer> {
+    List<Action> findByIdIn(Collection<Integer> ids);
+
     List<Action> findByIdNotIn(Collection<Integer> ids);
 }

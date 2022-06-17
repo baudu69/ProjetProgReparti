@@ -1,0 +1,13 @@
+<mat-card *ngIf="actionBilan">
+  <mat-card-title>{{actionBilan.action.wording}}</mat-card-title>
+  <mat-card-subtitle>{{actionComplete}}</mat-card-subtitle>
+  <mat-card-content *ngIf="actionBilan.obtenir">
+    <p>Date d'obtention : {{actionBilan.obtenir.valeurDebut}}</p>
+    <p>Valeur début : {{actionBilan.obtenir.valeurDebut}}</p>
+    <p>Valeur fin : {{actionBilan.obtenir.valeurFin}}</p>
+    <p>Retour moniteur : {{actionBilan.obtenir.retourMoniteur}}</p>
+  </mat-card-content>
+  <mat-card-content *ngIf="!actionBilan.obtenir">
+    Pas encore obtenu
+  </mat-card-content>
+</mat-card>
