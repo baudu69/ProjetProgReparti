@@ -54,6 +54,14 @@ public class ServiceApprenant {
 		this.utilisateurRepository.save(utilisateur);
 	}
 
+	public void editApprenant(int idApprenant, String nomUtil, String surname, String forename) {
+		Utilisateur utilisateur = this.utilisateurRepository.getById(idApprenant);
+		utilisateur.setNomUtil(nomUtil);
+		utilisateur.setSurname(surname);
+		utilisateur.setForename(forename);
+		this.utilisateurRepository.save(utilisateur);
+	}
+
 	public void deleteApprenant(int idApprenant) {
 		this.utilisateurRepository.delete(this.utilisateurRepository.findById(idApprenant).orElseThrow(NotExistException::new));
 	}
