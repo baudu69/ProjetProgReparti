@@ -1,7 +1,36 @@
-<h1>Accueil</h1>
-<div id="mainAccueil">
-  <div class="container">
-    <h2>Bienvenue dans l'application Permis Piste !</h2>
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <h1>Bienvenue dans l'application Permis Piste !</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Nous sommes le {{currentDate | date: 'dd/MM/yyyy'}}.
+      </p>
+    </mat-card-content>
+    <img id="logo" src="https://upload.wikimedia.org/wikipedia/fr/0/0b/Polytech_Lyon_logo.png" alt="">
+    <p>
+      Cette application vous permettra de suivre pas à pas votre apprentissage.
+    </p>
+    <p>
+      En vous souhaitant une agréable visite,
+    </p>
+    <br>
+    <br>
+    <h2>Pour commencer vous pouvez :</h2>
+    <ul>
+      <li>
+        <a routerLink="">Vous inscrire en tant qu'apprenant</a>
+      </li>
+      <li>
+        <a routerLink="jeu/inscription">Vous inscrire à un jeu</a>
+      </li>
+      <li>
+        <a routerLink="jeu">Accéder à la liste des jeux</a>
+      </li>
+    </ul>
 
-  </div>
+  </mat-card>
 </div>
