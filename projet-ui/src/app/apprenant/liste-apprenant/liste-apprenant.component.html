@@ -32,9 +32,9 @@
 
     <ng-container matColumnDef="modifier">
       <th *matHeaderCellDef mat-header-cell></th>
-      <td *matCellDef="let element" mat-cell>
+      <td *matCellDef="let element" mat-cell><a routerLink="edit/{{element.id}}">
         <button color="accent" mat-raised-button>Modifier</button>
-      </td>
+      </a></td>
     </ng-container>
 
     <ng-container matColumnDef="supprimer">

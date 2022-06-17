@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Modifier apprenant</h1>
+  <form (ngSubmit)="onSubmit()" *ngIf="apprenant" [formGroup]="formEdit" class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nom utilisateur</mat-label>
+      <input formControlName="nomUtil" matInput>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input formControlName="surname" matInput>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Prénom</mat-label>
+      <input formControlName="forename" matInput>
+    </mat-form-field>
+    <button mat-raised-button type="submit">Valider</button>
+  </form>
+</div>
