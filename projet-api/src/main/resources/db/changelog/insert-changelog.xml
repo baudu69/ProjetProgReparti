@@ -373,6 +373,59 @@
             <column name="valeur_fin">0</column>
             <column name="retour_moniteur">OLOLO</column>
         </insert>
+
+        <!--        Insert Objectif Action-->
+        <insert tableName="objectif_action">
+            <column name="id_action">1</column>
+            <column name="id_objectif">1</column>
+            <column name="libelle">""</column>
+        </insert>
+        <insert tableName="objectif_action">
+            <column name="id_action">2</column>
+            <column name="id_objectif">1</column>
+            <column name="libelle">""</column>
+        </insert>
+        <insert tableName="objectif_action">
+            <column name="id_action">3</column>
+            <column name="id_objectif">2</column>
+            <column name="libelle">""</column>
+        </insert>
+        <insert tableName="objectif_action">
+            <column name="id_action">4</column>
+            <column name="id_objectif">2</column>
+            <column name="libelle">""</column>
+        </insert>
+        <insert tableName="objectif_action">
+            <column name="id_action">5</column>
+            <column name="id_objectif">3</column>
+            <column name="libelle">""</column>
+        </insert>
+        <insert tableName="objectif_action">
+            <column name="id_action">1</column>
+            <column name="id_objectif">4</column>
+            <column name="libelle">""</column>
+        </insert>
+        <insert tableName="objectif_action">
+            <column name="id_action">2</column>
+            <column name="id_objectif">5</column>
+            <column name="libelle">""</column>
+        </insert>
+        <insert tableName="objectif_action">
+            <column name="id_action">3</column>
+            <column name="id_objectif">6</column>
+            <column name="libelle">""</column>
+        </insert>
+        <insert tableName="objectif_action">
+            <column name="id_action">4</column>
+            <column name="id_objectif">7</column>
+            <column name="libelle">""</column>
+        </insert>
+        <insert tableName="objectif_action">
+            <column name="id_action">5</column>
+            <column name="id_objectif">8</column>
+            <column name="libelle">""</column>
+        </insert>
+
     </changeSet>
 
 </databaseChangeLog>
