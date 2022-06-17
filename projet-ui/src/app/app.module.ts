@@ -10,7 +10,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatButtonModule} from "@angular/material/button";
-import {ListeMissionApprenantComponent} from './apprenant/liste-mission-apprenant/liste-mission-apprenant.component';
 import {ListeActionComponent} from './action/liste-action/liste-action.component';
 import {ListeIndicatorsComponent} from './action/liste-action/liste-indicators/liste-indicators.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -42,7 +41,6 @@ import {
     NavbarComponent,
     AccueilComponent,
     ListeApprenantComponent,
-    ListeMissionApprenantComponent,
     ListeActionComponent,
     ListeIndicatorsComponent,
     EnregistrerActionComponent,

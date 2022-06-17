@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AccueilComponent} from "./accueil/accueil.component";
 import {ListeApprenantComponent} from "./apprenant/liste-apprenant/liste-apprenant.component";
-import {ListeMissionApprenantComponent} from "./apprenant/liste-mission-apprenant/liste-mission-apprenant.component";
 import {ListeActionComponent} from "./action/liste-action/liste-action.component";
 import {ListeIndicatorsComponent} from "./action/liste-action/liste-indicators/liste-indicators.component";
 import {ListeJeuComponent} from "./jeu/liste-jeu/liste-jeu.component";
@@ -20,7 +19,6 @@ import {
 const routes: Routes = [
   {path: '', component: AccueilComponent},
   {path: 'apprenant', component: ListeApprenantComponent},
-  {path: 'apprenant/mission/:idApprenant', component: ListeMissionApprenantComponent},
   {path: 'apprenant/bilan/:idApprenant', component: BilanComponent},
   {path: 'apprenant/search/:str', component: SearchApprenantComponent},
   {path: 'apprenant/search', component: SearchApprenantComponent},

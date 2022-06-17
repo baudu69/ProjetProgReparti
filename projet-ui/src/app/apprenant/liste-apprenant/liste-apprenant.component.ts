@@ -12,7 +12,7 @@ export class ListeApprenantComponent implements OnInit {
   @Input()
   apprenants: IApprenant[] | undefined;
 
-  displayedColumns: string[] = ['id', 'nom', 'prenom', 'missions', 'bilan', 'modifier', 'supprimer'];
+  displayedColumns: string[] = ['id', 'nom', 'prenom', 'bilan', 'modifier', 'supprimer'];
 
   constructor(private serviceApprenant: ApprenantService) {
   }

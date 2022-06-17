@@ -16,13 +16,6 @@
       <td *matCellDef="let element" mat-cell> {{element.forename}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="missions">
-      <th *matHeaderCellDef mat-header-cell></th>
-      <td *matCellDef="let element" mat-cell><a routerLink="mission/{{element.id}}">
-        <button color="primary" mat-raised-button>Missions</button>
-      </a></td>
-    </ng-container>
-
     <ng-container matColumnDef="bilan">
       <th *matHeaderCellDef mat-header-cell></th>
       <td *matCellDef="let element" mat-cell><a routerLink="bilan/{{element.id}}">
