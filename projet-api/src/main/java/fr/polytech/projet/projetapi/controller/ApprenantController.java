@@ -71,4 +71,16 @@ public class ApprenantController {
 		logger.info("REST GET getBilanApprenant : {}", idApprenant);
 		return ResponseEntity.ok(this.serviceApprenant.getBilanOfAnUser(idApprenant));
 	}
+
+	@PostMapping("/edit")
+	public ResponseEntity<?> editApprenant(@RequestBody Map<String, String> map) {
+		logger.info("REST POST editApprenant : {}", map);
+		this.serviceApprenant.editApprenant(
+				Integer.parseInt(map.get("idApprenant")),
+				map.get("nomUtil"),
+				map.get("surname"),
+				map.get("forename")
+		);
+		return ResponseEntity.noContent().build();
+	}
 }

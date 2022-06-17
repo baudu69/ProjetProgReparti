@@ -29,6 +29,7 @@ import {ActionBilanComponent} from './apprenant/bilan/mission-bilan/action-bilan
 import {MatCardModule} from "@angular/material/card";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {SearchApprenantComponent} from './apprenant/search-apprenant/search-apprenant.component';
+import { EditApprenantComponent } from './apprenant/edit-apprenant/edit-apprenant.component';
 import {InscriptionApprenantComponent} from './jeu/inscription-apprenant/inscription-apprenant.component';
 import {ListeObjectifsComponent} from './jeu/liste-jeu/liste-mission-jeu/liste-objectifs/liste-objectifs.component';
 import {
@@ -52,6 +53,8 @@ import {
     ListeMissionJeuComponent,
     EnregistrerActionComponent,
     SearchApprenantComponent,
+    EditApprenantComponent,
+    InscriptionApprenantComponent
     InscriptionApprenantComponent,
     ListeObjectifsComponent,
     ListeActionObjectifsComponent,

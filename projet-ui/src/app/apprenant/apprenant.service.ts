@@ -41,4 +41,15 @@ export class ApprenantService {
   searchApprenant(str: string): Observable<HttpResponse<IApprenant[]>> {
     return this.http.get<IApprenant[]>(`api/apprenant/search=${str}`, {observe: "response"});
   }
+
+  editApprenant(idApprenant: number, nomUtil: string, surname: string, forename: string): Observable<HttpResponse<any>> {
+    return this.http.post<IApprenant>('api/apprenant/edit',
+      {
+        idApprenant: idApprenant,
+        nomUtil: nomUtil,
+        surname: surname,
+        forename: forename
+      },
+      {observe: "response"});
+  }
 }
